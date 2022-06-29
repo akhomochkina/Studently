@@ -5,12 +5,12 @@ import * as Animatable from 'react-native-animatable';
 import RegistrationForms from "../components/RegistrationForms";
 import RegistrationFormFields from "../components/RegistrationFormFields";
 import RegistrationButton from "../components/RegistrationButton";
+import { useNavigation } from '@react-navigation/stack';
 
 //hide keyboard when the screen is pressed
 const DismissKeyboard = ({children}) => (
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>{children}</TouchableWithoutFeedback>
 );
-
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required("Email required").email().label("Enter your student email"),
@@ -20,7 +20,7 @@ const validationSchema = Yup.object().shape({
 export default function LoginScreen({ navigation }) {
     return (
         <DismissKeyboard>  
-                        <ImageBackground source={require('../assets/images/bg2.jpg')} blurRadius={5} resizeMode="cover" style={styles.image}>
+            <ImageBackground source={require('../assets/images/bg2.jpg')} blurRadius={5} resizeMode="cover" style={styles.image}>
           
             <View style={styles.container}>
                 <Animatable.Text animation='fadeInDown' style={styles.header}>
