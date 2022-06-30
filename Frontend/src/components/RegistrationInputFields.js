@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#1b1b1c',
         borderBottomWidth: 1,
         flexDirection: 'row',
-        // padding: '5%',
+        padding: '2%',
         width: '80%',
         marginTop: '5%'
     },

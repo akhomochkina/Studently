@@ -17,8 +17,8 @@ const validationSchema = Yup.object().shape({
     password: Yup.string().required("Password required").label("Enter your password"),
 });
 
-export default function LoginScreen({ navigation }) {
-    return (
+function LoginScreen({ navigation }) {
+    return(
         <DismissKeyboard>  
             <ImageBackground source={require('../assets/images/bg2.jpg')} blurRadius={5} resizeMode="cover" style={styles.image}>
           
@@ -55,7 +55,7 @@ export default function LoginScreen({ navigation }) {
                     />
                     <RegistrationButton title='Log In' style={styles.btn}/>
                     <View>
-                        <Text style={styles.passwRecovery} onPress={()=> navigation.navigate('recoverPassword')}>Forgot password?</Text>
+                        <Text style={styles.passwRecovery} onPress={()=> navigation.navigate("recoverPassword")}>Forgot password?</Text>
                     </View>
                     
                 </RegistrationForms>     
@@ -63,13 +63,13 @@ export default function LoginScreen({ navigation }) {
             </View>
             <View style={styles.accnt}>
                     <Text >Don't Have an Account?
-                        <Text style={{ color: '#dfe6eb' }} onPress={()=> navigation.navigate('signUp')}> Sign Up!</Text>
+                        <Text style={{ color: '#dfe6eb' }} onPress={()=> navigation.navigate("signUp")}> Sign Up!</Text>
                     </Text>                        
             </View>               
             </ImageBackground> 
            
         </DismissKeyboard>
-    )
+    );
 }
 
 const styles=StyleSheet.create({
@@ -90,7 +90,7 @@ const styles=StyleSheet.create({
         backgroundColor: 'rgba(240, 240, 240, 0.5)',        
         width: '80%',
         height: '12%',
-        marginTop: '10%',
+        marginTop: '30%',
     },
 
     image: {
@@ -116,3 +116,5 @@ const styles=StyleSheet.create({
        alignSelf: 'center'       
     },    
 })
+
+export default LoginScreen;
