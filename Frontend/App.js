@@ -6,11 +6,13 @@ import LoginScreen from './src/screens/LoginScreen';
 import LoginScreenNavigation from './src/navigations/LoginScreenNavigation';
 import RegisterScreenNavigation from './src/navigations/RegisterScreenNavigation';
 import RegisterScreen from './src/screens/RegisterScreen';
+import MainPage from "./src/screens/MainPage";
 
 export default function App({navigation}) {
   return (
     
-     <RegisterScreen/>
+     // <RegisterScreen/>
+      <MainPage />
      
   );
 }
