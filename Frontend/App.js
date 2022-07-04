@@ -11,6 +11,8 @@ import PasswordRecoveryScreen from "./src/screens/PasswordRecoveryScreen";
 import 'react-native-gesture-handler';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import UploadImage from "./src/components/UploadImage";
+import ProfileScreen from "./src/screens/ProfileScreen";
 
 //const Stack = createStackNavigator();
 
@@ -43,9 +45,10 @@ import {createStackNavigator} from '@react-navigation/stack';
  
 export default function App(){
   return(
-    <NavigationContainer>
-      <LoginScreenNavigation />
-    </NavigationContainer>
+    // <NavigationContainer>
+    //   <LoginScreenNavigation />
+    // </NavigationContainer>
+    <ProfileScreen />
   );
 };
  
