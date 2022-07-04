@@ -13,10 +13,11 @@ import {
 } from "react-native";
 
 const AddProduct = () => {
-  const [imageStatus, setImageStatus] = useState("Choose image");
+  const [imageStatus, setImageStatus] = useState("");
   const [image, setImage] = useState(null);
   const [product, setProduct] = useState({});
   const [submitted, setSubmitted] = useState(false);
+  const [locationSuggestions, setLocationSuggestions] = useState([]);
 
   const uploadImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -33,6 +34,17 @@ const AddProduct = () => {
 
   function submitForm() {
     setSubmitted(true);
+  }
+
+  useEffect(() => {
+    fetchLocations(product.location);
+    console.log(locationSuggestions);
+  }, [product.location]);
+
+  function fetchLocations(input) {
+    fetch(`https://geogratis.gc.ca/services/geoname/en/geonames?q=${input}`)
+      .then((res) => res.json())
+      .then((res) => setLocationSuggestions(res.features));
   }
 
   return (
@@ -92,7 +104,7 @@ const AddProduct = () => {
           </View>
         </View>
         <View>
-          <Text style={styles.label}>Area</Text>
+          <Text style={styles.label}>Location</Text>
           <TextInput
             editable
             placeholder="Enter area name"
