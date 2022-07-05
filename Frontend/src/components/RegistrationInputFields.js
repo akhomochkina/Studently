@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, TextInput, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, TextInput } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export default function RegistrationInutFields({icon, style, ...otherProps}){
@@ -16,8 +16,7 @@ const styles = StyleSheet.create({
         borderBottomColor: '#1b1b1c',
         borderBottomWidth: 1,
         flexDirection: 'row',
-        // padding: '5%',
-        width: '80%',
+        padding: '2%',
         marginTop: '5%'
     },
 

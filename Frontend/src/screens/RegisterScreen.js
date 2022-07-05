@@ -21,7 +21,7 @@ const validationSchema = Yup.object().shape({
 });
 
 export default function RegisterScreen({ navigation }) {
-    return (
+    return(
         <DismissKeyboard>                         
            <ImageBackground source={require('../assets/images/bg2.jpg')} blurRadius={5} resizeMode="cover" style={styles.image}>
           
@@ -126,7 +126,7 @@ const styles=StyleSheet.create({
         backgroundColor: 'rgba(240, 240, 240, 0.5)',        
         width: '80%',
         height: '12%',
-        marginTop: '10%',
+        marginTop: '15%',
     },
 
     image: {
@@ -135,7 +135,7 @@ const styles=StyleSheet.create({
 
     subheaher: {
         fontSize: 15,
-        marginBottom: 50,
+        marginBottom: 30,
         fontWeight: 'bold',  
         color: '#1f2021',  
     },
