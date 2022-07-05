@@ -4,6 +4,8 @@ import PasswordRecoveryScreen from "../screens/PasswordRecoveryScreen";
 import RegisterScreen from '../screens/RegisterScreen';
 import LoginScreen from "../screens/LoginScreen";
 import MainPage from "../screens/MainPage";
+import CardFunc from "../components/Card";
+import ProductDetailsScreen from "../screens/ProductDetailsScreen";
 
 const Stack = createStackNavigator();
 
@@ -41,7 +43,23 @@ const LoginScreenNavigation = () => {
                 title: 'Home',
                 headerShown: false,
             }}
-            />        
+            />       
+        <Stack.Screen 
+            name='card'
+            component={CardFunc}
+            options={{
+                title: 'Details',
+                headerShown: false,
+            }}
+            /> 
+        <Stack.Screen 
+            name='productDetails'
+            component={ProductDetailsScreen}
+            options={{
+                title: 'Details',
+                headerShown: false,
+            }}
+            /> 
     
     </Stack.Navigator>  )  
 }

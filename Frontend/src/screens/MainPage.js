@@ -2,13 +2,13 @@ import Card from '../components/Card'
 import SearchBar from "../components/SearchBar";
 import {useState , useEffect} from "react";
 import {View} from 'react-native'
-import {Image, ScrollView, StyleSheet} from "react-native";
+import {Image, ScrollView, StyleSheet, Button} from "react-native";
 import BottomNavigation from "../components/BottomNavigation";
 import CategoryCard from "../components/CategoryCard";
 import ProductDetail from "../components/ProductDetail";
 import Items from '../assets/data/items.js';
 
-export default function MainPage({navigation}){
+export default function MainPage({ navigation }){
 
     const [item , setItem] = useState(Items);
     const categories = [...new Set(Items.map((Val) => Val.Category))];
@@ -50,9 +50,7 @@ export default function MainPage({navigation}){
                 <CategoryCard categories={categories} setItem={setItem} filterItem={filterItem}/>
                 {/* <SearchBar item={item} setItem={setItem} filterSearchItem={filterSearchItem}/> */}
                 <Card item={item}/>
-
-
-
+                <Button title='test'onPress={()=> navigation.navigate('productDetails')}></Button>
             </ScrollView>
             <BottomNavigation />
         </View>

@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
-export default function CardFunc({item}) {
+export default function CardFunc({ item, navigation }) {
 
     return item
         .map((data) => {
@@ -27,7 +27,7 @@ export default function CardFunc({item}) {
                             <Card.Cover source={{ uri: data.image }} />
                             <Card.Actions>
                                 {/*<Button>Cancel</Button>*/}
-                                <Button contentStyle={styles.button} icon="arrow-right" onPress={() => navigation.navigate('ProductDetail')}>Buy</Button>
+                                <Button contentStyle={styles.button} icon="arrow-right" onPress={() => navigation.navigate("productDetails")} >Buy</Button>
                             </Card.Actions>
                         </Card>
                     </View>

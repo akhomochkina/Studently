@@ -2,32 +2,40 @@ import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import MainPage from '../screens/MainPage';
 import ProductDetail from "../components/ProductDetail";
-import ProductDetailsScreenNavigation from "./ProductDetailsScreenNavigation";
+import CardFunc from "../components/Card";
 import ProductDetailsScreen from "../screens/ProductDetailsScreen";
 
 const Stack = createStackNavigator();
 
-const MainScreenNavigation = () => {
+const CardNavigationScreen = () => {
     return( 
-    <Stack.Navigator>
+    <Stack.Navigator>  
         <Stack.Screen 
-            name='mainPage'
+            name='main'
             component={MainPage}
             options={{
-                title: 'Home',
+                title: 'Details',
+                headerShown: true,
+            }}
+            />        
+        <Stack.Screen 
+            name='card'
+            component={CardFunc}
+            options={{
+                title: 'card',
                 headerShown: false,
             }}
-            /> 
+            />       
          <Stack.Screen 
             name='productDetails'
             component={ProductDetailsScreen}
             options={{
                 title: 'Details',
-                headerShown: false,
+                headerShown: true,
             }}
             />        
-    </Stack.Navigator>    
-    )
+    </Stack.Navigator>   
+     )
 }
 
-export default MainScreenNavigation;
+export default CardNavigationScreen;
