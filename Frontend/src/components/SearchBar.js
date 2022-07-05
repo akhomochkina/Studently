@@ -1,26 +1,36 @@
-import * as React from 'react';
+import React,{useState} from 'react'
+// import './App.css';
+// import item from '../assets/data/items'
 import { Searchbar } from 'react-native-paper';
-import {StyleSheet} from "react-native";
+import {StyleSheet , Button} from 'react-native';
+import Card from './Card';
+import Item from '../assets/data/items'
 
-const MyComponent = () => {
-    const [searchQuery, setSearchQuery] = React.useState('');
+export default function Searching({item , setItem , filterSearchItem}) {
 
-    const onChangeSearch = query => setSearchQuery(query);
+    const [searchTerm,setSearchTerm] = useState('')
 
     return (
-        <Searchbar
-            placeholder="Search"
-            onChangeText={onChangeSearch}
-            value={searchQuery}
-            style={styles.searchBar}
-        />
+        <>
+        <div className="App">
+            <input type="text" style={{backgroundColor: 'white' , color: 'red' , borderColor: 'white' , borderRadius: 5}} placeholder="Search..." onChange={
+                e=>{
+                    setSearchTerm(e.target.value);
+                filterSearchItem(e.target.value , setSearchTerm)}
+            } />
+            <Button
+                title="Clear"
+                onPress={() => setItem(Item)}
+                style={{}}
+            />
+        </div>
+        </>
     );
-};
+}
 
 const styles = StyleSheet.create({
-    searchBar: {
+    searchBar : {
         margin: 30
     }
 });
 
-export default MyComponent;

@@ -8,24 +8,38 @@ import CategoryCard from "../components/CategoryCard";
 import ProductDetail from "../components/ProductDetail";
 import Items from '../assets/data/items.js';
 
-console.log(Items)
-
 export default function MainPage({navigation}){
 
-    // console.log(customData)
-
     const [item , setItem] = useState(Items);
-
     const categories = [...new Set(Items.map((Val) => Val.Category))];
-
-    console.log(categories)
 
     const filterItem = (curcat) => {
         const newItem = Items.filter((newVal) => {
             return newVal.Category === curcat;
         });
+
         setItem(newItem);
     };
+
+
+    const filterSearchItem = (searchTerm , setSearchTerm) => {
+        const newItem = item.filter((val)=>{
+
+            if(searchTerm == ""){
+
+                setItem(Items);
+                return val;
+            }
+            else if(val.Name.toLowerCase().includes(searchTerm.toLowerCase())){
+
+                return val;
+            }
+        })
+        setItem(newItem)
+
+    };
+
+
 
     return(
         <View>
@@ -34,7 +48,7 @@ export default function MainPage({navigation}){
                 <Image source={require('../assets/images/logo.png')} style={styles.image} />
 
                 <CategoryCard categories={categories} setItem={setItem} filterItem={filterItem}/>
-                <SearchBar />
+                <SearchBar item={item} setItem={setItem} filterSearchItem={filterSearchItem}/>
                 <Card item={item}/>
 
 
