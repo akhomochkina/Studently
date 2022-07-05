@@ -13,7 +13,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import UploadImage from "./src/components/UploadImage";
 import ProfileScreen from "./src/screens/ProfileScreen";
-import AddProduct from "./src/screens/AddProduct";
+import AddProduct from "./src/screens/AddProductScreen";
 
 //const Stack = createStackNavigator();
 

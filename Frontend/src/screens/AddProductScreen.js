@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
+
 import {
   ScrollView,
   Text,
@@ -12,23 +13,37 @@ import {
   Platform,
 } from "react-native";
 
-const AddProduct = () => {
-  const [imageStatus, setImageStatus] = useState("");
+const AddProductScreen = () => {
   const [image, setImage] = useState(null);
   const [product, setProduct] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [locationSuggestions, setLocationSuggestions] = useState([]);
+  const [galleryPermission, setGalleryPermission] = useState(null);
+
+  const getPermission = async () => {
+    const imagePermission = await ImagePicker.getMediaLibraryPermissionsAsync();
+    console.log("permission:", imagePermission.status);
+
+    setGalleryPermission(imagePermission.status === "granted");
+
+    if (imagePermission.status !== "granted") {
+      alert("Permission for media access needed.");
+    }
+  };
 
   const uploadImage = async () => {
-    let result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      quality: 1,
-    });
+    getPermission();
 
-    if (!result.cancelled) {
-      setImage(result.uri);
-      setImageStatus("Success");
-      setProduct({ ...product, img: result.uri });
+    if (galleryPermission) {
+      let result = await ImagePicker.launchImageLibraryAsync({
+        mediaTypes: ImagePicker.MediaTypeOptions.Images,
+        quality: 1,
+      });
+
+      if (!result.cancelled) {
+        setImage(result.uri);
+        setProduct({ ...product, img: result.uri });
+      }
     }
   };
 
@@ -94,7 +109,8 @@ const AddProduct = () => {
               style={styles.imgBtn}
               onPress={uploadImage}
             />
-            <Text style={{ marginLeft: 8 }}>{imageStatus}</Text>
+          </View>
+          <View style={styles.img}>
             {image && (
               <Image
                 source={{ uri: image }}
@@ -143,7 +159,7 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AddProductScreen;
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -175,5 +191,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginTop: 8,
+  },
+  img: {
+    marginTop: 12,
   },
 });
