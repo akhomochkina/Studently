@@ -69,9 +69,6 @@ const AddProductScreen = () => {
     >
       <ScrollView>
         <View>
-          <Text style={styles.title}>Add product</Text>
-        </View>
-        <View>
           <Text style={styles.label}>Name</Text>
           <TextInput
             editable
@@ -163,7 +160,7 @@ export default AddProductScreen;
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 70,
+    marginTop: 20,
     marginBottom: 20,
     marginRight: 20,
     marginLeft: 20,
