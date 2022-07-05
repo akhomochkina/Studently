@@ -5,7 +5,7 @@ import * as Animatable from 'react-native-animatable';
 import RegistrationForms from "../components/RegistrationForms";
 import RegistrationFormFields from "../components/RegistrationFormFields";
 import RegistrationButton from "../components/RegistrationButton";
-import { useNavigation } from '@react-navigation/stack';
+
 
 //hide keyboard when the screen is pressed
 const DismissKeyboard = ({children}) => (
