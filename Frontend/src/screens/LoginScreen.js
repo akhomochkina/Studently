@@ -13,9 +13,6 @@ import RegistrationForms from "../components/RegistrationForms";
 import RegistrationFormFields from "../components/RegistrationFormFields";
 import RegistrationButton from "../components/RegistrationButton";
 
-import { useNavigation } from "@react-navigation/stack";
-
-
 //hide keyboard when the screen is pressed
 const DismissKeyboard = ({ children }) => (
   <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -49,11 +46,12 @@ function LoginScreen({ navigation }) {
           <Animatable.Text animation="fadeInDown" style={styles.subheaher}>
             Safe and Reliable marketplace for students
           </Animatable.Text>
-          <RegistrationForms
+          <RegistrationForms    
             initialValues={{ email: "", password: "" }}
             onSubmit={(values) => console.log(values)}
             validationSchema={validationSchema}
           >
+        <View style={{width: "80%"}}>
             <RegistrationFormFields
               name="email"
               autoCapitalize="none"
@@ -72,7 +70,8 @@ function LoginScreen({ navigation }) {
               placeholder="Enter your password"
               secureTextEntry={true}
             />
-            <RegistrationButton title="Log In" style={styles.btn} />
+            </View>
+            <RegistrationButton title="Log In" onPress={()=>navigation.navigate("mainPage")} style={styles.btn} />
             <View>
               <Text
                 style={styles.passwRecovery}

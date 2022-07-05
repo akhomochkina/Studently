@@ -35,6 +35,7 @@ export default function PasswordRecoveryScreen({ navigation }) {
                   onSubmit={(values) => console.log(values)}
                   validationSchema={validationSchema}
                   >
+                <View style={{width: "80%"}}>
                   <RegistrationFormFields
                       name='email'
                       autoCapitalize='none'
@@ -44,6 +45,7 @@ export default function PasswordRecoveryScreen({ navigation }) {
                       icon='email'
                       placeholder='Enter your student email'                      
                   />
+                </View>
                   <Text style={styles.txt}>{label}</Text>
                   <RegistrationButton title='Reset Password' style={styles.btn} onPress={()=>setLabel('Reset link has been sent to your inbox')}/>
                    

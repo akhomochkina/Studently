@@ -37,7 +37,7 @@ export default function RegisterScreen({ navigation }) {
                   onSubmit={(values) => console.log(values)}
                   validationSchema={validationSchema}
                   >
-
+                <View style={{width: "80%"}}>
                     <RegistrationFormFields
                       name='firstName'
                       autoCapitalize='none'
@@ -93,7 +93,8 @@ export default function RegisterScreen({ navigation }) {
                       icon='phone'
                       placeholder='Enter your phone'
                   />
-                  <RegistrationButton title='Create Account' style={styles.btn}/>                                    
+                </View>
+                  <RegistrationButton title='Create Account' onPress={()=>navigation.navigate("login")} style={styles.btn}/>                                    
               </RegistrationForms>    
                                             
           </View>
@@ -125,7 +126,7 @@ const styles=StyleSheet.create({
     btn: {        
         backgroundColor: 'rgba(240, 240, 240, 0.5)',        
         width: '80%',
-        height: '12%',
+        height: '10%',
         marginTop: '15%',
     },
 

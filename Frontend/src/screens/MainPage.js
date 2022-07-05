@@ -48,7 +48,7 @@ export default function MainPage({navigation}){
                 <Image source={require('../assets/images/logo.png')} style={styles.image} />
 
                 <CategoryCard categories={categories} setItem={setItem} filterItem={filterItem}/>
-                <SearchBar item={item} setItem={setItem} filterSearchItem={filterSearchItem}/>
+                {/* <SearchBar item={item} setItem={setItem} filterSearchItem={filterSearchItem}/> */}
                 <Card item={item}/>
 
 

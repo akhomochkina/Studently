@@ -13,7 +13,7 @@ import {
   Platform,
 } from "react-native";
 
-const AddProductScreen = () => {
+const AddProductScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
   const [product, setProduct] = useState({});
   const [submitted, setSubmitted] = useState(false);
@@ -134,7 +134,7 @@ const AddProductScreen = () => {
             onChangeText={(e) => setProduct({ ...product, school: e })}
           />
         </View>
-        <Button title="Submit" onPress={submitForm} />
+        <Button title="Submit" onPress={()=>navigation.navigate("mainScreen")} />
         <View>
           {submitted && (
             <>

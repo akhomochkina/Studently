@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import PasswordRecoveryScreen from "../screens/PasswordRecoveryScreen";
 import RegisterScreen from '../screens/RegisterScreen';
 import LoginScreen from "../screens/LoginScreen";
+import MainPage from "../screens/MainPage";
 
 const Stack = createStackNavigator();
 
@@ -32,7 +33,16 @@ const LoginScreenNavigation = () => {
                 title: 'Back',
                 headerShown: false,
             }}
-            />
+            />            
+        <Stack.Screen 
+            name='mainPage'
+            component={MainPage}
+            options={{
+                title: 'Home',
+                headerShown: false,
+            }}
+            />        
+    
     </Stack.Navigator>  )  
 }
 

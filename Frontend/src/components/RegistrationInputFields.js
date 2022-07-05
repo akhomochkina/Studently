@@ -17,7 +17,8 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         flexDirection: 'row',
         padding: '2%',
-        marginTop: '5%'
+        marginTop: '5%',
+        width: "100%"
     },
 
     icon: {
