@@ -1,54 +1,41 @@
 import * as React from 'react';
 import {AppRegistry, View , StyleSheet} from 'react-native';
 import {Provider as PaperProvider, Chip, Card, Title, Paragraph, Button , Avatar} from 'react-native-paper';
-// import { name as appName } from './app.json';
-// import App from './src/App';
-// import item from '../assets/data/items.json'
-// const customData = require('../assets/data/items.json');
 import {useEffect, useState} from "react";
-const customData = require('../assets/data/items.json');
+
 
 
 const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
-export default function Main() {
+export default function CardFunc({item}) {
 
-    const [data , setData] = useState();
+    return item
+        .map((data) => {
 
-    const getData = () => {
-        fetch(customData).then(response => response.json())
-    }
+            return (
 
-    useEffect(() => {
-        setData(customData);
-    })
+                <PaperProvider key={data.Id}>
 
-    return customData.Items.map((data) => {
-        return (
+                    <View style={styles.view} >
 
-            <PaperProvider>
+                        <Card style={styles.cardGroup} >
+                            {/*<Card.Title title="Card Title"  />*/}
+                            <Card.Content>
+                                <Title>{data.Name}</Title>
+                                <Paragraph>{data.Price} CAD</Paragraph>
 
-                <View style={styles.view}>
-
-                    <Card style={styles.cardGroup}>
-                        <Card.Title title="Card Title"  />
-                        <Card.Content>
-                            <Title>{data.Name}</Title>
-                            <Paragraph>{data.Price} CAD</Paragraph>
-
-                        </Card.Content>
-                        <Card.Cover source={{ uri: data.image }} />
-                        <Card.Actions>
-                            <Button>Cancel</Button>
-                            <Button>Ok</Button>
-                        </Card.Actions>
-                    </Card>
-
-                </View>
+                            </Card.Content>
+                            <Card.Cover source={{ uri: data.image }} />
+                            <Card.Actions>
+                                {/*<Button>Cancel</Button>*/}
+                                <Button contentStyle={styles.button} icon="arrow-right" onPress={() => navigation.navigate('ProductDetail')}>Buy</Button>
+                            </Card.Actions>
+                        </Card>
+                    </View>
 
 
-            </PaperProvider>
-        );
-    })
+                </PaperProvider>
+            );
+        })
 
 
 }
@@ -61,11 +48,22 @@ const styles = StyleSheet.create({
         // display: "table-cell",
         margin: 20,
         padding: 30,
+        // display: "grid",
+        // gridTemplateColumns: "repeat(2 , 1fr)",
+        // columnGap: 10,
+        // rowGap: "1em",
 
     },
 
     view: {
-        display: "table",
-        width: "100%"
+
+
     },
+    button: {
+        flexDirection: 'row-reverse',
+        float: 'right'
+    }
+
 });
+
+

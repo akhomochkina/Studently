@@ -1,0 +1,14 @@
+{
+  "Categories": [
+    {
+      "Id": "1",
+      "Name": "Home Appliances",
+      "Icon": "home"
+    },
+    {
+      "Id": "2",
+      "Name": "Study Material",
+      "Icon": "book"
+    }
+  ]
+}

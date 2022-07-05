@@ -7,20 +7,38 @@ import LoginScreenNavigation from './src/navigations/LoginScreenNavigation';
 import RegisterScreenNavigation from './src/navigations/RegisterScreenNavigation';
 import RegisterScreen from './src/screens/RegisterScreen';
 import MainPage from "./src/screens/MainPage";
+import ProductDetail from './src/components/ProductDetail';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function App({navigation}) {
+export default function App() {
+    function Main() {
+        return (
+            <MainPage />
+        );
+    }
+
+    function Details() {
+        return (
+            <ProductDetail />
+        );
+    }
+
+    const Stack = createNativeStackNavigator();
+
   return (
     
      // <RegisterScreen/>
-      <MainPage />
+
+      <NavigationContainer>
+          <Stack.Navigator >
+              <Stack.Screen name="MainPage" component={Main} />
+              <Stack.Screen name="ProductDetail" component={Details} />
+          </Stack.Navigator>
+      </NavigationContainer>
+
+     //  <ProductDetail />
      
   );
 }
 
-// const styles = StyleSheet.create({
-//   btn: {
-    
-//     backgroundColor: '#131369',
-    
-//   },
-// });
