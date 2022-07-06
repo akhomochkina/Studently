@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import MainButton from "../components/MainButton";
 import TextButton from "../components/TextButton";
+import ChooseCategories from "../components/ChooseCategories";
 
 const AddProductScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
@@ -67,98 +68,102 @@ const AddProductScreen = ({ navigation }) => {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.wrapper}
     >
-      <ScrollView>
-        <View>
-          <Text style={styles.label}>Name</Text>
-          <TextInput
-            editable
-            placeholder="Enter product name"
-            style={styles.input}
-            onChangeText={(e) => setProduct({ ...product, name: e })}
-          />
-        </View>
-        <View>
-          <Text style={styles.label}>Description</Text>
-          <TextInput
-            editable
-            placeholder="Enter product description"
-            style={styles.input}
-            multiline
-            numberOfLines={5}
-            onChangeText={(e) => setProduct({ ...product, description: e })}
-          />
-        </View>
-        <View>
-          <Text style={styles.label}>Price (CAD)</Text>
-          <TextInput
-            editable
-            placeholder="Enter product price"
-            style={styles.input}
-            onChangeText={(e) => setProduct({ ...product, price: e })}
-            keyboardType="numeric"
-          />
-        </View>
-        <View>
-          <Text style={styles.label}>Image</Text>
-          <View style={styles.imgUpload}>
-            <TextButton title="Upload" onPress={uploadImage} />
-            <TextButton
-              title="Generate"
-              style={styles.generate}
-              onPress={fetchImage}
-            />
-            <Text>{}</Text>
-          </View>
-          <View style={styles.img}>
-            {image && (
-              <Image
-                source={{ uri: image }}
-                style={{ width: 200, height: 200 }}
-              />
-            )}
-          </View>
-        </View>
-        <View>
-          <Text style={styles.label}>Location</Text>
-          <TextInput
-            editable
-            placeholder="Enter area name"
-            style={styles.input}
-            onChangeText={(e) => setProduct({ ...product, location: e })}
-          />
-        </View>
-        <View>
-          <Text style={styles.label}>School</Text>
-          <TextInput
-            editable
-            placeholder="Choose school if relevant"
-            style={styles.input}
-            onChangeText={(e) => setProduct({ ...product, school: e })}
-          />
-        </View>
-        <MainButton
-          title="Submit"
-          // onPress={() => navigation.navigate("mainPage")}
-          onPress={submitForm}
-          style={styles.submitBtn}
+      {/* <ScrollView> */}
+      <View>
+        <Text style={styles.label}>Name</Text>
+        <TextInput
+          editable
+          placeholder="Enter product name"
+          style={styles.input}
+          onChangeText={(e) => setProduct({ ...product, name: e })}
         />
-        <View>
-          {submitted && (
-            <>
-              <Text>Review</Text>
-              <Text>{product.name}</Text>
-              <Text>{product.description}</Text>
-              <Text>{product.price}</Text>
-              <Text>{product.location}</Text>
-              <Text>{product.school}</Text>
-              <Image
-                source={{ uri: product.img }}
-                style={{ width: 200, height: 200 }}
-              />
-            </>
+      </View>
+      <View>
+        <Text style={styles.label}>Description</Text>
+        <TextInput
+          editable
+          placeholder="Enter product description"
+          style={styles.input}
+          multiline
+          numberOfLines={5}
+          onChangeText={(e) => setProduct({ ...product, description: e })}
+        />
+      </View>
+      <View>
+        <Text style={styles.label}>Price (CAD)</Text>
+        <TextInput
+          editable
+          placeholder="Enter product price"
+          style={styles.input}
+          onChangeText={(e) => setProduct({ ...product, price: e })}
+          keyboardType="numeric"
+        />
+      </View>
+      <View>
+        <Text style={styles.label}>Image</Text>
+        <View style={styles.imgUpload}>
+          <TextButton title="Upload" onPress={uploadImage} />
+          <TextButton
+            title="Generate"
+            style={styles.generate}
+            onPress={fetchImage}
+          />
+        </View>
+        <View style={styles.img}>
+          {image && (
+            <Image
+              source={{ uri: image }}
+              style={{ width: 200, height: 200 }}
+            />
           )}
         </View>
-      </ScrollView>
+      </View>
+      <View>
+        <Text style={styles.label}>Category</Text>
+        <ChooseCategories setProduct={setProduct} product={product} />
+      </View>
+      <View>
+        <Text style={styles.label}>Location</Text>
+        <TextInput
+          editable
+          placeholder="Enter area name"
+          style={styles.input}
+          onChangeText={(e) => setProduct({ ...product, location: e })}
+        />
+      </View>
+      <View>
+        <Text style={styles.label}>School</Text>
+        <TextInput
+          editable
+          placeholder="Choose school if relevant"
+          style={styles.input}
+          onChangeText={(e) => setProduct({ ...product, school: e })}
+        />
+      </View>
+      <MainButton
+        title="Submit"
+        // onPress={() => navigation.navigate("mainPage")}
+        onPress={submitForm}
+        style={styles.submitBtn}
+      />
+      <View>
+        {submitted && (
+          <>
+            <Text>Review</Text>
+            <Text>{product.name}</Text>
+            <Text>{product.description}</Text>
+            <Text>{product.price}</Text>
+            <Text>{product.location}</Text>
+            <Text>{product.school}</Text>
+            <Text>{product.category}</Text>
+            <Image
+              source={{ uri: product.img }}
+              style={{ width: 200, height: 200 }}
+            />
+          </>
+        )}
+      </View>
+      {/* </ScrollView> */}
     </KeyboardAvoidingView>
   );
 };
@@ -185,13 +190,13 @@ const styles = StyleSheet.create({
   },
   label: {
     marginTop: 16,
+    marginBottom: 8,
   },
   input: {
     borderColor: "#D9D9D9",
     borderWidth: 1,
     borderStyle: "solid",
     padding: 10,
-    marginTop: 8,
   },
   imgUpload: {
     flex: 1,
