@@ -19,7 +19,6 @@ const AddProductScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
   const [product, setProduct] = useState({});
   const [submitted, setSubmitted] = useState(false);
-  const [locationSuggestions, setLocationSuggestions] = useState([]);
   const [galleryPermission, setGalleryPermission] = useState(null);
 
   const getPermission = async () => {
@@ -53,15 +52,14 @@ const AddProductScreen = ({ navigation }) => {
     setSubmitted(true);
   }
 
-  useEffect(() => {
-    fetchLocations(product.location);
-    console.log(locationSuggestions);
-  }, [product.location]);
-
-  function fetchLocations(input) {
-    fetch(`https://geogratis.gc.ca/services/geoname/en/geonames?q=${input}`)
+  function fetchImage() {
+    const accessKey = "h6tJzpxOM079qC08gY1SwJQk4PNsFYFYP79YEBt3IoQ";
+    const query = product.name;
+    fetch(
+      `https://api.unsplash.com/search/photos/?client_id=${accessKey}&limit=1&query=${query}`
+    )
       .then((res) => res.json())
-      .then((res) => setLocationSuggestions(res.features));
+      .then((res) => setImage(res.results[0].urls.regular));
   }
 
   return (
@@ -103,11 +101,13 @@ const AddProductScreen = ({ navigation }) => {
         <View>
           <Text style={styles.label}>Image</Text>
           <View style={styles.imgUpload}>
+            <TextButton title="Upload" onPress={uploadImage} />
             <TextButton
-              title="Upload"
-              style={styles.imgBtn}
-              onPress={uploadImage}
+              title="Generate"
+              style={styles.generate}
+              onPress={fetchImage}
             />
+            <Text>{}</Text>
           </View>
           <View style={styles.img}>
             {image && (
@@ -146,7 +146,7 @@ const AddProductScreen = ({ navigation }) => {
           {submitted && (
             <>
               <Text>Review</Text>
-              <Text>{product.title}</Text>
+              <Text>{product.name}</Text>
               <Text>{product.description}</Text>
               <Text>{product.price}</Text>
               <Text>{product.location}</Text>
@@ -174,6 +174,9 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
+  },
+  generate: {
+    marginLeft: 8,
   },
   title: {
     textAlign: "center",
