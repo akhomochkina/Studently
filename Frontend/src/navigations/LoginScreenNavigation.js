@@ -7,6 +7,7 @@ import MainPage from "../screens/MainPage";
 import CardFunc from "../components/Card";
 import ProductDetailsScreen from "../screens/ProductDetailsScreen";
 import AddProductScreen from "../screens/AddProductScreen";
+import MainScreenNavigation from "./MainPageNavigation";
 
 const Stack = createStackNavigator();
 
@@ -39,7 +40,7 @@ const LoginScreenNavigation = () => {
             />            
         <Stack.Screen 
             name='mainPage'
-            component={MainPage}
+            component={MainScreenNavigation}
             options={{
                 title: 'Home',
                 headerShown: false,

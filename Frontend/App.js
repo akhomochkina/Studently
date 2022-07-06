@@ -123,7 +123,7 @@ export default function App() {
   return (
     <NavigationContainer>
     {/* <Stack.Navigator screenOptions={{ headerShown: true }}> */}
-        <MainScreenNavigation/>
+        <LoginScreenNavigation/>
         {/* <Stack.Screen name="Home" component={Home} /> */}
         {/* <Stack.Screen name="EditPost" component={MainScreenNavigation} /> */}
       {/* </Stack.Navigator> */}
