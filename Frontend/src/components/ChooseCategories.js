@@ -17,7 +17,7 @@ const ChooseCategories = ({ setProduct, product }) => {
 
   function handlePress(name) {
     setSelected(name);
-    setProduct({ ...product, category: name });
+    setProduct({ ...product, Category: name });
   }
 
   return (

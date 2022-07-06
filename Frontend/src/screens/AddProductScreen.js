@@ -15,6 +15,7 @@ import {
 import MainButton from "../components/MainButton";
 import TextButton from "../components/TextButton";
 import ChooseCategories from "../components/ChooseCategories";
+import Items from "../assets/data/items";
 
 const AddProductScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
@@ -51,6 +52,9 @@ const AddProductScreen = ({ navigation }) => {
 
   function submitForm() {
     setSubmitted(true);
+    alert(`${product.Name} has been posted`);
+    Items.push(product);
+    console.log(Items);
   }
 
   function fetchImage() {
@@ -63,107 +67,125 @@ const AddProductScreen = ({ navigation }) => {
       .then((res) => setImage(res.results[0].urls.regular));
   }
 
+  const ex = {
+    Id: 1,
+    Name: "Bath towels",
+    Price: 25,
+    Category: "Home Appliances",
+    image:
+      "https://images.unsplash.com/photo-1523471826770-c437b4636fe6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    dateCreated: "05/07/2022",
+    prodLocation: "North York",
+    school: "Seneca College",
+    description:
+      "Produced from sustainably sourced 100% certified Egyptian cotton, our plush terry towels are made with the planet in mind.",
+    userId: 11111,
+    userName: "Reza Poursafa",
+    userPhone: "647 111 1111",
+    userImg:
+      "https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+  };
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.wrapper}
     >
-      {/* <ScrollView> */}
-      <View>
-        <Text style={styles.label}>Name</Text>
-        <TextInput
-          editable
-          placeholder="Enter product name"
-          style={styles.input}
-          onChangeText={(e) => setProduct({ ...product, name: e })}
-        />
-      </View>
-      <View>
-        <Text style={styles.label}>Description</Text>
-        <TextInput
-          editable
-          placeholder="Enter product description"
-          style={styles.input}
-          multiline
-          numberOfLines={5}
-          onChangeText={(e) => setProduct({ ...product, description: e })}
-        />
-      </View>
-      <View>
-        <Text style={styles.label}>Price (CAD)</Text>
-        <TextInput
-          editable
-          placeholder="Enter product price"
-          style={styles.input}
-          onChangeText={(e) => setProduct({ ...product, price: e })}
-          keyboardType="numeric"
-        />
-      </View>
-      <View>
-        <Text style={styles.label}>Image</Text>
-        <View style={styles.imgContainer}>
-          <TextButton title="Upload" onPress={uploadImage} />
-          <TextButton
-            title="Generate"
-            style={styles.generate}
-            onPress={fetchImage}
+      <ScrollView>
+        <View>
+          <Text style={styles.label}>Name</Text>
+          <TextInput
+            editable
+            placeholder="Enter product name"
+            style={styles.input}
+            onChangeText={(e) => setProduct({ ...product, Name: e })}
           />
         </View>
-        <View style={styles.img}>
-          {image && (
-            <Image
-              source={{ uri: image }}
-              style={{ width: 200, height: 200 }}
-            />
-          )}
+        <View>
+          <Text style={styles.label}>Description</Text>
+          <TextInput
+            editable
+            placeholder="Enter product description"
+            style={styles.input}
+            multiline
+            numberOfLines={5}
+            onChangeText={(e) => setProduct({ ...product, description: e })}
+          />
         </View>
-      </View>
-      <View>
-        <Text style={styles.label}>Category</Text>
-        <ChooseCategories setProduct={setProduct} product={product} />
-      </View>
-      <View>
-        <Text style={styles.label}>Location</Text>
-        <TextInput
-          editable
-          placeholder="Enter area name"
-          style={styles.input}
-          onChangeText={(e) => setProduct({ ...product, location: e })}
-        />
-      </View>
-      <View>
-        <Text style={styles.label}>School</Text>
-        <TextInput
-          editable
-          placeholder="Choose school if relevant"
-          style={styles.input}
-          onChangeText={(e) => setProduct({ ...product, school: e })}
-        />
-      </View>
-      <MainButton
-        title="Submit"
-        // onPress={() => navigation.navigate("mainPage")}
-        onPress={submitForm}
-        style={styles.submitBtn}
-      />
-      <View>
-        {submitted && (
-          <>
-            <Text>Review</Text>
-            <Text>{product.name}</Text>
-            <Text>{product.description}</Text>
-            <Text>{product.price}</Text>
-            <Text>{product.location}</Text>
-            <Text>{product.school}</Text>
-            <Text>{product.category}</Text>
-            <Image
-              source={{ uri: product.img }}
-              style={{ width: 200, height: 200 }}
+        <View>
+          <Text style={styles.label}>Price (CAD)</Text>
+          <TextInput
+            editable
+            placeholder="Enter product price"
+            style={styles.input}
+            onChangeText={(e) => setProduct({ ...product, Price: e })}
+            keyboardType="numeric"
+          />
+        </View>
+        <View>
+          <Text style={styles.label}>Image</Text>
+          <View style={styles.imgContainer}>
+            <TextButton title="Upload" onPress={uploadImage} />
+            <TextButton
+              title="Generate"
+              style={styles.generate}
+              onPress={fetchImage}
             />
-          </>
-        )}
-      </View>
-      {/* </ScrollView> */}
+          </View>
+          <View style={styles.img}>
+            {image && (
+              <Image
+                source={{ uri: image }}
+                style={{ width: 200, height: 200 }}
+              />
+            )}
+          </View>
+        </View>
+        <View>
+          <Text style={styles.label}>Category</Text>
+          <ChooseCategories setProduct={setProduct} product={product} />
+        </View>
+        <View>
+          <Text style={styles.label}>Location</Text>
+          <TextInput
+            editable
+            placeholder="Enter area name"
+            style={styles.input}
+            onChangeText={(e) => setProduct({ ...product, location: e })}
+          />
+        </View>
+        <View>
+          <Text style={styles.label}>School</Text>
+          <TextInput
+            editable
+            placeholder="Choose school if relevant"
+            style={styles.input}
+            onChangeText={(e) => setProduct({ ...product, school: e })}
+          />
+        </View>
+        <MainButton
+          title="Submit"
+          onPress={() => submitForm()}
+          style={styles.submitBtn}
+        />
+        {/* <View>
+          {submitted && (
+            <>
+              <Text>Review</Text>
+              <Text>{product.name}</Text>
+              <Text>{product.description}</Text>
+              <Text>{product.price}</Text>
+              <Text>{product.location}</Text>
+              <Text>{product.school}</Text>
+              <Text>{product.category}</Text>
+              <Image
+                source={{ uri: product.img }}
+                style={{ width: 200, height: 200 }}
+              />
+            </>
+          )}
+        </View> */}
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 };
