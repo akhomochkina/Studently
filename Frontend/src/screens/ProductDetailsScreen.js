@@ -11,10 +11,24 @@ import {
   Image,
   KeyboardAvoidingView,
   Platform,
+  Linking,
 } from "react-native";
+import MainButton from "../components/MainButton";
 
 const ProductDetailsScreen = () => {
   const [image, setImage] = useState(null);
+
+  function handlePress() {
+    let phoneNumber = "";
+
+    if (Platform.OS === "android") {
+      phoneNumber = "tel:${1234567890}";
+    } else {
+      phoneNumber = "telprompt:${1234567890}";
+    }
+
+    Linking.openURL(phoneNumber);
+  }
 
   const example = {
     product: {
@@ -25,6 +39,7 @@ const ProductDetailsScreen = () => {
       location: "North York",
       school: "Seneca College",
       img: "https://i.rtings.com/assets/products/l3QhIc1S/apple-macbook-air-13-m1-2020/design-medium.jpg",
+      date_created: "05/07/2022",
     },
     user: {
       id: 48532355,
@@ -43,6 +58,7 @@ const ProductDetailsScreen = () => {
     >
       <ScrollView>
         <Image source={{ uri: product.img }} style={styles.img} />
+        <Text style={styles.date}>Created on {product.date_created}</Text>
         <View style={styles.header}>
           <Text style={styles.title}>{product.title}</Text>
           <Text style={styles.price}>${product.price}</Text>
@@ -67,7 +83,7 @@ const ProductDetailsScreen = () => {
             <Image source={{ uri: user.img }} style={styles.profileImg} />
             <Text>{user.name}</Text>
           </View>
-          <Button title="Contact" />
+          <MainButton title="Contact" onPress={handlePress} />
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -75,6 +91,11 @@ const ProductDetailsScreen = () => {
 };
 
 export default ProductDetailsScreen;
+
+// dark grey - #A4A3A3
+// light grey - #D9D9D9
+// super light grey - #F3F3F3
+// blue - #7E94E5
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -93,6 +114,11 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginTop: 12,
     marginBottom: 12,
+  },
+  date: {
+    fontStyle: "italic",
+    marginTop: 12,
+    color: "#A4A3A3",
   },
   title: {
     fontSize: 18,
@@ -134,7 +160,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     marginTop: 20,
     padding: 20,
-    backgroundColor: "#D9D9D9",
+    backgroundColor: "#F3F3F3",
   },
   contactUser: {
     flex: 1,
