@@ -27,7 +27,7 @@ export default function CardFunc({ item, navigation }) {
                             <Card.Cover source={{ uri: data.image }} />
                             <Card.Actions>
                                 {/*<Button>Cancel</Button>*/}
-                                <Button contentStyle={styles.button} icon="arrow-right" onPress={() => navigation.navigate("productDetails")} >Buy</Button>
+                                <Button contentStyle={styles.button} icon="arrow-right" onPress={() => navigation.navigate("productDetails" , { data: data})} >Buy</Button>
                             </Card.Actions>
                         </Card>
                     </View>
@@ -52,11 +52,11 @@ const styles = StyleSheet.create({
         // gridTemplateColumns: "repeat(2 , 1fr)",
         // columnGap: 10,
         // rowGap: "1em",
+        borderRadius: 20
 
     },
 
     view: {
-
 
     },
     button: {
