@@ -46,9 +46,9 @@ export default function ProfileScreen({ navigation }){
         </View>
         <RegistrationButton title="Edit" style={styles.btn} />
         <View style={{marginTop: 20}}>
-            <Button style={styles.btns} color="#d4cdcd" title="Favorites"></Button>
-            <Button style={styles.btns} color="#d4cdcd" title="Purchased"></Button>
-            <Button style={styles.btns} color="#d4cdcd" title="My Items"></Button>
+            <Button style={styles.btns} color="#7E94E5" title="Favorites"></Button>
+            <Button style={styles.btns} color="#7E94E5" title="Purchased"></Button>
+            <Button style={styles.btns} color="#7E94E5" title="My Items"></Button>
         </View>
       </View>
     );
