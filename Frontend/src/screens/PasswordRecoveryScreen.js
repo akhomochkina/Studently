@@ -93,7 +93,7 @@ const styles=StyleSheet.create({
         marginBottom: 50,
         fontWeight: 'bold',  
         color: '#1f2021',  
-        marginBottom: '30%'
+
     },
 
     txt: {

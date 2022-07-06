@@ -14,6 +14,7 @@ import {
 } from "react-native";
 
 const ProductDetailsScreen = () => {
+
   const [image, setImage] = useState(null);
 
   const example = {
