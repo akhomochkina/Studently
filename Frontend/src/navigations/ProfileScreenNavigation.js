@@ -15,14 +15,7 @@ const ProfileScreenNavigation = () => {
                 title: 'Account Info',
                 headerShown: true,
             }}
-            />    
-            <Stack.Screen 
-            name='mainPage'
-            component={MainPage}
-            options={{
-                headerShown: false,
-            }}
-            />       
+            />                
     </Stack.Navigator>    
    )
 }

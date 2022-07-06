@@ -44,7 +44,7 @@ export default function ProfileScreen({ navigation }){
                         />
             </RegistrationForms>
         </View>
-        <RegistrationButton title="Edit" style={styles.btn} onPress={navigation.navigate('mainPage')}/>
+        <RegistrationButton title="Edit" style={styles.btn} />
         <View style={{marginTop: 20}}>
             <Button style={styles.btns} color="#d4cdcd" title="Favorites"></Button>
             <Button style={styles.btns} color="#d4cdcd" title="Purchased"></Button>
