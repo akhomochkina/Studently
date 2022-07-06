@@ -13,6 +13,7 @@ import {
   Platform,
 } from "react-native";
 import MainButton from "../components/MainButton";
+import TextButton from "../components/TextButton";
 
 const AddProductScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
@@ -102,7 +103,7 @@ const AddProductScreen = ({ navigation }) => {
         <View>
           <Text style={styles.label}>Image</Text>
           <View style={styles.imgUpload}>
-            <Button
+            <TextButton
               title="Upload"
               style={styles.imgBtn}
               onPress={uploadImage}
@@ -137,7 +138,8 @@ const AddProductScreen = ({ navigation }) => {
         </View>
         <MainButton
           title="Submit"
-          onPress={() => navigation.navigate("mainPage")}
+          // onPress={() => navigation.navigate("mainPage")}
+          onPress={submitForm}
           style={styles.submitBtn}
         />
         <View>

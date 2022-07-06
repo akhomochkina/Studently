@@ -1,6 +1,6 @@
 import { TouchableOpacity, View, Text } from "react-native";
 
-const MainButton = ({ title, onPress, style }) => {
+const TextButton = ({ title, onPress, style }) => {
   return (
     <TouchableOpacity onPress={onPress}>
       <View style={[styles.button, style]}>
@@ -10,17 +10,12 @@ const MainButton = ({ title, onPress, style }) => {
   );
 };
 
-export default MainButton;
+export default TextButton;
 
 const styles = {
-  button: {
-    alignItems: "center",
-    backgroundColor: "#7E94E5",
-  },
   buttonText: {
-    textAlign: "center",
-    padding: 16,
-    color: "white",
+    color: "#7E94E5",
     fontWeight: "bold",
+    fontSize: 14,
   },
 };
