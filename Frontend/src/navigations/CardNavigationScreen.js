@@ -25,14 +25,14 @@ const CardNavigationScreen = () => {
                 headerShown: false,
             }}
             />       
-         <Stack.Screen 
-            name='productDetails'
-            component={ProductDetailsScreen}
-            options={{
-                title: 'Details',
-                headerShown: true,
-            }}
-            />        
+         {/*<Stack.Screen */}
+         {/*   name='productDetails'*/}
+         {/*   component={ProductDetailsScreen}*/}
+         {/*   options={{*/}
+         {/*       title: 'Details',*/}
+         {/*       headerShown: true,*/}
+         {/*   }}*/}
+         {/*   />        */}
     </Stack.Navigator>   
      )
 }

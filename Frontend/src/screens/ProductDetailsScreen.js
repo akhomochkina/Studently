@@ -15,7 +15,9 @@ import {
 } from "react-native";
 import MainButton from "../components/MainButton";
 
-const ProductDetailsScreen = () => {
+const ProductDetailsScreen = ({ navigation , route }) => {
+
+  let item = route.params.data;
 
   const [image, setImage] = useState(null);
 
@@ -31,38 +33,17 @@ const ProductDetailsScreen = () => {
     Linking.openURL(phoneNumber);
   }
 
-  const example = {
-    product: {
-      title: "MacBook Air M1",
-      description:
-        "Bought 3 years ago. Works really well, I just wanted an upgrade. Can be picked up at Seneca Newnham",
-      price: 500,
-      location: "North York",
-      school: "Seneca College",
-      img: "https://i.rtings.com/assets/products/l3QhIc1S/apple-macbook-air-13-m1-2020/design-medium.jpg",
-      date_created: "05/07/2022",
-    },
-    user: {
-      id: 48532355,
-      name: "Jane Doe",
-      phone: "123 456 789",
-      img: "https://as1.ftcdn.net/v2/jpg/01/16/24/44/1000_F_116244459_pywR1e0T3H7FPk3LTMjG6jsL3UchDpht.jpg",
-    },
-  };
-
-  const { product, user } = example;
-
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={styles.wrapper}
     >
       <ScrollView>
-        <Image source={{ uri: product.img }} style={styles.img} />
-        <Text style={styles.date}>Created on {product.date_created}</Text>
+        <Image source={{ uri: item.image }} style={styles.img} />
+        <Text style={styles.date}>Created on {item.dateCreated}</Text>
         <View style={styles.header}>
-          <Text style={styles.title}>{product.title}</Text>
-          <Text style={styles.price}>${product.price}</Text>
+          <Text style={styles.title}>{item.Name}</Text>
+          <Text style={styles.price}>${item.Price}</Text>
         </View>
         <View style={styles.subheader}>
           <MaterialCommunityIcons
@@ -70,19 +51,19 @@ const ProductDetailsScreen = () => {
             size={20}
             style={styles.icon}
           />
-          <Text style={styles.iconText}>{product.location}</Text>
+          <Text style={styles.iconText}>{item.prodLocation}</Text>
           <MaterialCommunityIcons
             name="school-outline"
             size={20}
             style={[styles.icon, styles.schoolIcon]}
           />
-          <Text>{product.school}</Text>
+          <Text>{item.school}</Text>
         </View>
-        <Text style={styles.description}>{product.description}</Text>
+        <Text style={styles.description}>{item.description}</Text>
         <View style={styles.contactBox}>
           <View style={styles.contactUser}>
-            <Image source={{ uri: user.img }} style={styles.profileImg} />
-            <Text>{user.name}</Text>
+            <Image source={{ uri: item.userImg }} style={styles.profileImg} />
+            <Text>{item.userName}</Text>
           </View>
           <MainButton title="Contact" onPress={handlePress} />
         </View>

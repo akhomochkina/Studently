@@ -17,14 +17,14 @@ const MainScreenNavigation = () => {
                 headerShown: false,
             }}
             /> 
-         <Stack.Screen 
-            name='productDetails'
-            component={ProductDetailsScreen}
-            options={{
-                title: 'Details',
-                headerShown: false,
-            }}
-            />        
+         {/*<Stack.Screen */}
+         {/*   name='productDetails'*/}
+         {/*   component={ProductDetailsScreen}*/}
+         {/*   options={{*/}
+         {/*       title: 'Details',*/}
+         {/*       headerShown: false,*/}
+         {/*   }}*/}
+         {/*   />        */}
     </Stack.Navigator>    
     )
 }

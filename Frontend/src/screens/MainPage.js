@@ -50,10 +50,10 @@ export default function MainPage({ navigation }) {
           filterSearchItem={filterSearchItem}
         />
         <Card item={item} navigation={navigation} />
-        <Button
-          title="test"
-          onPress={() => navigation.navigate("productDetails")}
-        ></Button>
+        {/*<Button*/}
+        {/*  title="test"*/}
+        {/*  onPress={() => navigation.navigate("productDetails" , {item : item})}*/}
+        {/*></Button>*/}
       </ScrollView>
       <BottomNavigation />
     </View>
