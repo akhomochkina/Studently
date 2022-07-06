@@ -101,7 +101,7 @@ const AddProductScreen = ({ navigation }) => {
       </View>
       <View>
         <Text style={styles.label}>Image</Text>
-        <View style={styles.imgUpload}>
+        <View style={styles.imgContainer}>
           <TextButton title="Upload" onPress={uploadImage} />
           <TextButton
             title="Generate"
@@ -198,11 +198,11 @@ const styles = StyleSheet.create({
     borderStyle: "solid",
     padding: 10,
   },
-  imgUpload: {
-    flex: 1,
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 8,
+  imgContainer: {
+    // flex: 1,
+    // flexDirection: "row",
+    // alignItems: "center",
+    // marginTop: 8,
   },
   img: {
     marginTop: 12,
