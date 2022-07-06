@@ -10,7 +10,7 @@ const CardNavigationScreen = () => {
     return( 
     <Stack.Navigator>  
         <Stack.Screen 
-            name='main'
+            name='mainPage'
             component={MainPage}
             options={{
                 title: 'Details',
