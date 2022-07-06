@@ -34,19 +34,19 @@ const AddProductScreen = ({ navigation }) => {
   };
 
   const uploadImage = async () => {
-    getPermission();
+    // getPermission();
 
-    if (galleryPermission) {
-      let result = await ImagePicker.launchImageLibraryAsync({
-        mediaTypes: ImagePicker.MediaTypeOptions.Images,
-        quality: 1,
-      });
+    // if (galleryPermission) {
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.Images,
+      quality: 1,
+    });
 
-      if (!result.cancelled) {
-        setImage(result.uri);
-        setProduct({ ...product, img: result.uri });
-      }
-    }
+    // if (!result.cancelled) {
+    setImage(result.uri);
+    setProduct({ ...product, img: result.uri });
+    // }
+    // }
   };
 
   function submitForm() {
