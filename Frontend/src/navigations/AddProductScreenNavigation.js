@@ -1,5 +1,6 @@
 import { createStackNavigator } from "@react-navigation/stack";
 import AddProductScreen from "../screens/AddProductScreen";
+import MainPage from "../screens/MainPage";
 
 const Stack = createStackNavigator();
 
@@ -14,7 +15,16 @@ const AddProductScreenNavigation = () => {
           headerShown: true,
         }}
       />
+      <Stack.Screen
+        name="mainPage"
+        component={MainPage}
+        options={{
+          title: "Add product",
+          headerShown: false,
+        }}
+      />
     </Stack.Navigator>
+
   );
 };
 

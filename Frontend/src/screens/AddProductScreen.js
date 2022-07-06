@@ -134,7 +134,7 @@ const AddProductScreen = ({ navigation }) => {
             onChangeText={(e) => setProduct({ ...product, school: e })}
           />
         </View>
-        <Button title="Submit" onPress={()=>navigation.navigate("mainScreen")} />
+        <Button title="Submit" onPress={()=>navigation.navigate("mainPage")} />
         <View>
           {submitted && (
             <>

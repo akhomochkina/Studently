@@ -63,6 +63,7 @@ import UploadImage from "./src/components/UploadImage";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import AddProduct from "./src/screens/AddProductScreen";
 import ProductDetailsScreen from "./src/screens/ProductDetailsScreen";
+import AddProductScreen from "./src/screens/AddProductScreen";
 
 //const Stack = createStackNavigator();
 
@@ -97,7 +98,7 @@ export default function App() {
   return (
     <NavigationContainer>
       {/* <LoginScreenNavigation /> */}
-      <LoginScreenNavigation />
+      <AddProductScreenNavigation />
     </NavigationContainer>
     // <View>
     //   <MainPage />
