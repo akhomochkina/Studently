@@ -44,7 +44,7 @@ export default function ProfileScreen({ navigation }){
                         />
             </RegistrationForms>
         </View>
-        <RegistrationButton title="Edit" style={styles.btn}/>
+        <RegistrationButton title="Edit" style={styles.btn} onPress={navigation.navigate('mainPage')}/>
         <View style={{marginTop: 20}}>
             <Button style={styles.btns} color="#d4cdcd" title="Favorites"></Button>
             <Button style={styles.btns} color="#d4cdcd" title="Purchased"></Button>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       margin: 20,
-      marginTop: 70,
+      //marginTop: 70,
       // backgroundColor: "#c7b5b5",      
     },
 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
 
     fields: { 
       padding: 10,
-      marginTop: "10%",
+      marginTop: "5%",
       fontSize: 20,        
     },
 
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(240, 240, 240, 0.5)',        
         width: '50%',
         height: '7%',
-        marginTop: '10%',
+        marginTop: '5%',
         alignSelf: "center"
     },
 

@@ -14,15 +14,7 @@ const AddProductScreenNavigation = () => {
           title: "Add product",
           headerShown: true,
         }}
-      />
-      <Stack.Screen
-        name="mainPage"
-        component={MainPage}
-        options={{
-          title: "Add product",
-          headerShown: false,
-        }}
-      />
+      />      
     </Stack.Navigator>
 
   );

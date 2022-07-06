@@ -6,6 +6,15 @@ import {Image, ScrollView, StyleSheet, Button} from "react-native";
 import BottomNavigation from "../components/BottomNavigation";
 import CategoryCard from "../components/CategoryCard";
 import Items from "../assets/data/items.js";
+import MyTabs from '../components/BottomNavigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MainScreenNavigation from '../navigations/MainPageNavigation';
+import AddProductScreenNavigation from '../navigations/AddProductScreenNavigation';
+
+
+const Tab = createBottomTabNavigator();
+
 
 export default function MainPage({ navigation }) {
   const [item, setItem] = useState(Items);
@@ -51,12 +60,8 @@ export default function MainPage({ navigation }) {
           filterSearchItem={filterSearchItem}
         />
         <Card item={item} navigation={navigation} />
-        {/*<Button*/}
-        {/*  title="test"*/}
-        {/*  onPress={() => navigation.navigate("productDetails" , {item : item})}*/}
-        {/*></Button>*/}
+       
       </ScrollView>
-      <BottomNavigation />
     </View>
   );
 }

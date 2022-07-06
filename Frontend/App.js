@@ -55,6 +55,8 @@ import RegisterScreenNavigation from "./src/navigations/RegisterScreenNavigation
 import RegisterScreen from "./src/screens/RegisterScreen";
 import PasswordRecoveryScreen from "./src/screens/PasswordRecoveryScreen";
 import MainPage from "./src/screens/MainPage";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import MyTabBar from "./src/components/BottomNavigation";
 
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
@@ -64,6 +66,9 @@ import ProfileScreen from "./src/screens/ProfileScreen";
 import AddProduct from "./src/screens/AddProductScreen";
 import ProductDetailsScreen from "./src/screens/ProductDetailsScreen";
 import AddProductScreen from "./src/screens/AddProductScreen";
+import MainScreenNavigation from "./src/navigations/MainPageNavigation";
+import MyTabs from "./src/components/BottomNavigation";
+import TabsFunc from "./src/components/BottomNavigation";
 
 //const Stack = createStackNavigator();
 
@@ -93,13 +98,36 @@ import AddProductScreen from "./src/screens/AddProductScreen";
 //     </Stack.Navigator>
 //   );
 // };
+const Tab = createBottomTabNavigator();
+const Stack = createStackNavigator();
+
+function Home() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Profile" component={MainPage} />
+      <Tab.Screen name="Settings" component={AddProductScreen} />
+    </Tab.Navigator>
+  );
+}
+
+// function Tabs() {
+//   return (
+//     <Tab.Navigator screenOptions={{ headerShown: false }}>
+//       <Tab.Screen name="main" component={MainScreenNavigation} />
+//       <Tab.Screen name="add" component={AddProductScreenNavigation} />
+//     </Tab.Navigator>
+//   );
+// }
 
 export default function App() {
   return (
     <NavigationContainer>
-       <LoginScreenNavigation />
-      {/*<AddProductScreenNavigation />*/}
-    </NavigationContainer>
+    {/* <Stack.Navigator screenOptions={{ headerShown: true }}> */}
+        <MainScreenNavigation/>
+        {/* <Stack.Screen name="Home" component={Home} /> */}
+        {/* <Stack.Screen name="EditPost" component={MainScreenNavigation} /> */}
+      {/* </Stack.Navigator> */}
+  </NavigationContainer>
     // <View>
     //   <MainPage />
     // </View>
