@@ -5,57 +5,59 @@ import {View} from 'react-native'
 import {Image, ScrollView, StyleSheet, Button} from "react-native";
 import BottomNavigation from "../components/BottomNavigation";
 import CategoryCard from "../components/CategoryCard";
-import ProductDetail from "../components/ProductDetail";
-import Items from '../assets/data/items.js';
+import Items from "../assets/data/items.js";
 
-export default function MainPage({ navigation }){
+export default function MainPage({ navigation }) {
+  const [item, setItem] = useState(Items);
+  const categories = [...new Set(Items.map((Val) => Val.Category))];
 
-    const [item , setItem] = useState(Items);
-    const categories = [...new Set(Items.map((Val) => Val.Category))];
+  const filterItem = (curcat) => {
+    const newItem = Items.filter((newVal) => {
+      return newVal.Category === curcat;
+    });
 
-    const filterItem = (curcat) => {
-        const newItem = Items.filter((newVal) => {
-            return newVal.Category === curcat;
-        });
+    setItem(newItem);
+  };
 
-        setItem(newItem);
-    };
+  const filterSearchItem = (searchTerm, setSearchTerm) => {
+    const newItem = item.filter((val) => {
+      if (searchTerm == "") {
+        setItem(Items);
+        return val;
+      } else if (val.Name.toLowerCase().includes(searchTerm.toLowerCase())) {
+        return val;
+      }
+    });
+    setItem(newItem);
+  };
 
+  return (
+    <View>
+      <ScrollView>
+        <Image
+          source={require("../assets/images/logo.png")}
+          style={styles.image}
+        />
 
-    const filterSearchItem = (searchTerm , setSearchTerm) => {
-        const newItem = item.filter((val)=>{
-
-            if(searchTerm == ""){
-
-                setItem(Items);
-                return val;
-            }
-            else if(val.Name.toLowerCase().includes(searchTerm.toLowerCase())){
-
-                return val;
-            }
-        })
-        setItem(newItem)
-
-    };
-
-
-
-    return(
-        <View>
-            <ScrollView>
-
-                <Image source={require('../assets/images/logo.png')} style={styles.image} />
-
-                <CategoryCard categories={categories} setItem={setItem} filterItem={filterItem}/>
-                {/* <SearchBar item={item} setItem={setItem} filterSearchItem={filterSearchItem}/> */}
-                <Card item={item}/>
-                <Button title='test'onPress={()=> navigation.navigate('productDetails')}></Button>
-            </ScrollView>
-            <BottomNavigation />
-        </View>
-
-    )
+        <CategoryCard
+          categories={categories}
+          setItem={setItem}
+          filterItem={filterItem}
+        />
+        <SearchBar
+          item={item}
+          setItem={setItem}
+          filterSearchItem={filterSearchItem}
+        />
+        <Card item={item} navigation={navigation} />
+        <Button
+          title="test"
+          onPress={() => navigation.navigate("productDetails")}
+        ></Button>
+      </ScrollView>
+      <BottomNavigation />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

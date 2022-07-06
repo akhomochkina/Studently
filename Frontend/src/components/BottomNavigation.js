@@ -3,12 +3,11 @@ import {StyleSheet, Text, View} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import ProductDetail from './ProductDetail';
 
 function Feed() {
     return (
         <View >
-            <ProductDetail />
+            <Text />
         </View>
     );
 }
@@ -34,7 +33,7 @@ const Tab = createBottomTabNavigator();
 function MyTabs() {
     return (
         <Tab.Navigator
-            initialRouteName="ProductDetail"
+            initialRouteName="Feed"
             screenOptions={{
                 tabBarActiveTintColor: '#e91e63',
                 tabBarStyle: {  position: 'fixed'  , platform: 'ios' },
