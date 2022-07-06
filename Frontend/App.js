@@ -97,8 +97,8 @@ import AddProductScreen from "./src/screens/AddProductScreen";
 export default function App() {
   return (
     <NavigationContainer>
-      {/* <LoginScreenNavigation /> */}
-      <AddProductScreenNavigation />
+       <LoginScreenNavigation />
+      {/*<AddProductScreenNavigation />*/}
     </NavigationContainer>
     // <View>
     //   <MainPage />

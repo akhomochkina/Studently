@@ -43,6 +43,7 @@ export default function MainPage({ navigation }) {
           categories={categories}
           setItem={setItem}
           filterItem={filterItem}
+
         />
         <SearchBar
           item={item}
