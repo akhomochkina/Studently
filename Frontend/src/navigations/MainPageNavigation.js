@@ -25,23 +25,22 @@ function Home() {
 
 const MainScreenNavigation = () => {
     return( 
-    <Stack.Navigator>
-        <Stack.Screen 
-            name='mainPage'
-            component={MainPage}
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+        
+        <Stack.Screen name="home" component={Home} />
+        <Stack.Screen name="main" component={MainScreenNavigation} />
+         <Stack.Screen 
+            name='productDetails'
+            component={ProductDetailsScreen}
             options={{
-                title: 'Home',
+                title: 'Details',
                 headerShown: false,
             }}
-            /> 
-         {/*<Stack.Screen */}
-         {/*   name='productDetails'*/}
-         {/*   component={ProductDetailsScreen}*/}
-         {/*   options={{*/}
-         {/*       title: 'Details',*/}
-         {/*       headerShown: false,*/}
-         {/*   }}*/}
-         {/*   />        */}
+            />    
+        <Stack.Screen name="add" component={AddProductScreenNavigation} />
+        <Stack.Screen name="profile" component={ProfileScreenNavigation} />
+ 
+       
     </Stack.Navigator>    
      
     
