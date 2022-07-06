@@ -137,7 +137,7 @@ const AddProductScreen = ({ navigation }) => {
         </View>
         <MainButton
           title="Submit"
-          onPress={() => navigation.navigate("mainScreen")}
+          onPress={() => navigation.navigate("mainPage")}
           style={styles.submitBtn}
         />
         <View>

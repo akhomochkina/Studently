@@ -6,6 +6,7 @@ import LoginScreen from "../screens/LoginScreen";
 import MainPage from "../screens/MainPage";
 import CardFunc from "../components/Card";
 import ProductDetailsScreen from "../screens/ProductDetailsScreen";
+import AddProductScreen from "../screens/AddProductScreen";
 
 const Stack = createStackNavigator();
 
@@ -60,6 +61,14 @@ const LoginScreenNavigation = () => {
                 headerShown: false,
             }}
             /> 
+            <Stack.Screen 
+            name='addProduct'
+            component={AddProductScreen}
+            options={{
+                title: 'Back',
+                headerShown: false,
+            }}
+            />
     
     </Stack.Navigator>  )  
 }
