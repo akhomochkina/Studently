@@ -12,6 +12,7 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
+import MainButton from "../components/MainButton";
 
 const AddProductScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
@@ -134,7 +135,11 @@ const AddProductScreen = ({ navigation }) => {
             onChangeText={(e) => setProduct({ ...product, school: e })}
           />
         </View>
-        <Button title="Submit" onPress={()=>navigation.navigate("mainScreen")} />
+        <MainButton
+          title="Submit"
+          onPress={() => navigation.navigate("mainScreen")}
+          style={styles.submitBtn}
+        />
         <View>
           {submitted && (
             <>
@@ -190,6 +195,9 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   img: {
+    marginTop: 12,
+  },
+  submitBtn: {
     marginTop: 12,
   },
 });
