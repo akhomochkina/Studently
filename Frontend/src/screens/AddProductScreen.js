@@ -16,7 +16,6 @@ import MainButton from "../components/MainButton";
 import TextButton from "../components/TextButton";
 import ChooseCategories from "../components/ChooseCategories";
 import Items from "../assets/data/items";
-import { ContextProvider } from "../components/Context";
 import { Context } from "../../App";
 
 const AddProductScreen = ({ navigation }) => {
@@ -67,9 +66,7 @@ const AddProductScreen = ({ navigation }) => {
       userImg:
         "https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
     };
-    // const newArray = [...Items];
     Items.unshift(item);
-    // // Items.unshift(context);
     setProducts(Items);
     console.log(products);
   }
