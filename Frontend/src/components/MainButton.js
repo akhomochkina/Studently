@@ -16,6 +16,7 @@ const styles = {
   button: {
     alignItems: "center",
     backgroundColor: "#7E94E5",
+    borderRadius: 4,
   },
   buttonText: {
     textAlign: "center",

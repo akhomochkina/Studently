@@ -163,23 +163,6 @@ const AddProductScreen = ({ navigation }) => {
           onPress={() => submitForm()}
           style={styles.submitBtn}
         />
-        {/* <View>
-          {submitted && (
-            <>
-              <Text>Review</Text>
-              <Text>{product.name}</Text>
-              <Text>{product.description}</Text>
-              <Text>{product.price}</Text>
-              <Text>{product.location}</Text>
-              <Text>{product.school}</Text>
-              <Text>{product.category}</Text>
-              <Image
-                source={{ uri: product.img }}
-                style={{ width: 200, height: 200 }}
-              />
-            </>
-          )}
-        </View> */}
       </ScrollView>
     </KeyboardAvoidingView>
   );
@@ -214,6 +197,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderStyle: "solid",
     padding: 10,
+    backgroundColor: "white",
   },
   imgContainer: {
     flex: 1,

@@ -18,17 +18,6 @@ export default function SchoolCard({ categories, setItem, filterItem }) {
   });
   return categories.map((school) => {
     return (
-      //   <Button
-      //     style={styles.categoryCard}
-      //     key={school}
-      //     mode="contained"
-      //     onPress={() => filterItem(school)}
-      //   >
-      //     {school}
-      //   </Button>
-      //   <View style={styles.categoryCard}>
-      //     <Text style={styles.text}>{school}</Text>
-      //   </View>
       <MainButton
         title={school}
         onPress={() => filterItem(school)}
@@ -47,20 +36,4 @@ const styles = StyleSheet.create({
   btn: {
     marginBottom: 8,
   },
-  //   categoryCard: {
-  //     // marginLeft: 20,
-  //     // marginRight: 20,
-  //     // marginTop: 5,
-  //     backgroundColor: "#7E94E5",
-  //     height: 50,
-  //     width: "100%",
-  //     flex: 1,
-  //     justifyContent: "center",
-  //     alignItems: "center",
-  //     marginBottom: 8,
-  //   },
-  //   text: {
-  //     color: "white",
-  //     marginTop: 4,
-  //   },
 });
