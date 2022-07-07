@@ -57,7 +57,7 @@ const ProductDetailsScreen = ({ navigation, route }) => {
             size={20}
             style={[styles.icon, styles.schoolIcon]}
           />
-          <Text>{item.school}</Text>
+          <Text style={styles.iconText}>{item.school}</Text>
         </View>
         <Text style={styles.description}>{item.description}</Text>
         <View style={styles.contactBox}>
@@ -81,7 +81,7 @@ export default ProductDetailsScreen;
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 50,
+    marginTop: 20,
     marginBottom: 20,
     marginRight: 20,
     marginLeft: 20,
@@ -92,6 +92,7 @@ const styles = StyleSheet.create({
   img: {
     height: 300,
     minWidth: "100%",
+    borderRadius: 4,
   },
   header: {
     flex: 1,
@@ -128,6 +129,7 @@ const styles = StyleSheet.create({
   },
   iconText: {
     marginRight: 16,
+    color: "#A4A3A3",
   },
   profileImg: {
     height: 40,
@@ -145,7 +147,8 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     marginTop: 20,
     padding: 20,
-    backgroundColor: "#F3F3F3",
+    backgroundColor: "white",
+    borderRadius: 4,
   },
   contactUser: {
     flex: 1,

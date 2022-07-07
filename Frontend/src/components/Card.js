@@ -33,7 +33,7 @@ export default function CardFunc({ item, navigation }) {
               <Text style={styles.name}>{data.Name}</Text>
               <View style={styles.paragraph}>
                 <MaterialCommunityIcons
-                  name="map-marker"
+                  name="map-marker-outline"
                   color={"#A4A3A3"}
                   size={25}
                 />

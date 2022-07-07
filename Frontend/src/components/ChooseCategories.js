@@ -7,11 +7,11 @@ const ChooseCategories = ({ setProduct, product }) => {
   const categories = [
     {
       id: 1,
-      name: "Home appliances",
+      name: "Home Appliances",
     },
     {
       id: 2,
-      name: "Study material",
+      name: "Study Material",
     },
   ];
 

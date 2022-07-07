@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginRight: 8,
+    borderRadius: 4,
   },
   text: {
     marginTop: 4,

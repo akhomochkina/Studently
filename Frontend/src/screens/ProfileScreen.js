@@ -7,6 +7,7 @@ import RegistrationButton from "../components/RegistrationButton";
 import * as Yup from "yup";
 import { Button } from "@rneui/base";
 import MainButton from "../components/MainButton";
+import TextButton from "../components/TextButton";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
@@ -66,9 +67,10 @@ export default function ProfileScreen({ navigation }) {
         <Button style={styles.btns} color="#7E94E5" title="Favorites"></Button>
         <Button style={styles.btns} color="#7E94E5" title="Purchased"></Button>
         <Button style={styles.btns} color="#7E94E5" title="My Items"></Button>
-        <MainButton
+        <TextButton
           title="Log out"
           onPress={() => navigation.navigate("login")}
+          style={styles.logOut}
         />
       </View>
     </View>
@@ -105,5 +107,10 @@ const styles = StyleSheet.create({
 
   btns: {
     margin: 10,
+  },
+
+  logOut: {
+    alignSelf: "center",
+    marginTop: 16,
   },
 });
