@@ -51,11 +51,12 @@ export default function MainPage({ navigation }) {
   };
 
   return (
-    <View>
+    <View style={styles.container}>
       <ScrollView>
-        <Image
-          source={require("../assets/images/logo.png")}
-          style={styles.image}
+        <SearchBar
+          item={item}
+          setItem={setItem}
+          filterSearchItem={filterSearchItem}
         />
         <Text style={styles.text}>Categories</Text>
         <CategoryCard
@@ -63,18 +64,14 @@ export default function MainPage({ navigation }) {
           setItem={setItem}
           filterItem={filterItem}
         />
-        <Text style={styles.text}>Schools</Text>
 
+        <Text style={styles.text}>Schools</Text>
         <SchoolCard
           setItem={setItem}
           filterItem={filterSchoolItem}
           categories={schools}
         />
-        <SearchBar
-          item={item}
-          setItem={setItem}
-          filterSearchItem={filterSearchItem}
-        />
+
         <Card item={item} navigation={navigation} />
       </ScrollView>
     </View>
@@ -82,22 +79,19 @@ export default function MainPage({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  image: {
-    width: 200,
-    height: 200,
-    marginLeft: "auto",
-    marginRight: "auto",
-    borderRadius: 20,
-    marginTop: 40,
-    marginBottom: 20,
+  container: {
+    marginTop: 70,
+    marginRight: 20,
+    marginLeft: 20,
   },
   bottom: {
     position: "absolute",
     top: 0,
   },
   text: {
-    marginLeft: 20,
+    // marginLeft: 20,
     fontWeight: "bold",
-    marginTop: 8,
+    marginTop: 16,
+    marginBottom: 8,
   },
 });
