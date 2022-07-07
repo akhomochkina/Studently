@@ -8,6 +8,7 @@ import CardFunc from "../components/Card";
 import ProductDetailsScreen from "../screens/ProductDetailsScreen";
 import AddProductScreen from "../screens/AddProductScreen";
 import MainScreenNavigation from "./MainPageNavigation";
+import ChatPage from '../screens/Chat'
 
 const Stack = createStackNavigator();
 
@@ -54,14 +55,14 @@ const LoginScreenNavigation = () => {
                 headerShown: false,
             }}
             /> 
-        <Stack.Screen 
-            name='productDetails'
-            component={ProductDetailsScreen}
-            options={{
-                title: 'Details',
-                headerShown: false,
-            }}
-            /> 
+        {/*<Stack.Screen */}
+        {/*    name='productDetails'*/}
+        {/*    component={ProductDetailsScreen}*/}
+        {/*    options={{*/}
+        {/*        title: 'Details',*/}
+        {/*        headerShown: false,*/}
+        {/*    }}*/}
+        {/*    /> */}
             <Stack.Screen 
             name='addProduct'
             component={AddProductScreen}
@@ -69,6 +70,14 @@ const LoginScreenNavigation = () => {
                 title: 'Back',
                 headerShown: false,
             }}
+            />
+            <Stack.Screen
+                name='chat'
+                component={ChatPage}
+                options={{
+                    title: 'Back',
+                    headerShown: false,
+                }}
             />
     
     </Stack.Navigator>  )  

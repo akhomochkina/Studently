@@ -14,8 +14,8 @@ import {
 } from 'react-native';
 
 
-export default class ChatPage extends Component {
-    
+export default class Chat extends Component {
+
 
   constructor(props) {
     super(props);

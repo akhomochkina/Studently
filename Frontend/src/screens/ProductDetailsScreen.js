@@ -37,6 +37,10 @@ const ProductDetailsScreen = ({ navigation , route }) => {
     Linking.openURL(phoneNumber);
   }
 
+  function goToChat(){
+    navigation.navigate('chat' , {initial: false})
+  }
+
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -72,7 +76,7 @@ const ProductDetailsScreen = ({ navigation , route }) => {
           <View >
           <MainButton title="Call" onPress={handlePress} />
           <Text> </Text>
-          <MainButton title="Chat" onPress={navigation.navigate('chat')} />
+          <MainButton title="Chat" onPress={goToChat} />
           </View>          
         </View>
       </ScrollView>

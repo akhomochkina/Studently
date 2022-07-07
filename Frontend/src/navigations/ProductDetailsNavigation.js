@@ -7,14 +7,14 @@ const Stack = createStackNavigator();
 
 const ProductDetailsNavigation = () => {
    return( <Stack.Navigator>
-        <Stack.Screen 
-            name='productDetails'
-            component={ProductDetailsScreen}
-            options={{
-                title: 'test',
-                headerShown: true,
-            }}
-            />     
+        {/*<Stack.Screen */}
+        {/*    name='productDetails'*/}
+        {/*    component={ProductDetailsScreen}*/}
+        {/*    options={{*/}
+        {/*        title: 'test',*/}
+        {/*        headerShown: true,*/}
+        {/*    }}*/}
+        {/*    />     */}
         {/* <Stack.Screen 
             name='chat'
             component={ChatPage}
