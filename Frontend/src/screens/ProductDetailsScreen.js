@@ -12,11 +12,11 @@ import {
   KeyboardAvoidingView,
   Platform,
   Linking,
+  Dimensions,
 } from "react-native";
 import MainButton from "../components/MainButton";
 
-const ProductDetailsScreen = ({ navigation , route }) => {
-
+const ProductDetailsScreen = ({ navigation, route }) => {
   let item = route.params.data;
 
   const [image, setImage] = useState(null);
@@ -87,11 +87,11 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
   },
   img: {
     height: 300,
-    width: "100%",
+    minWidth: "100%",
   },
   header: {
     flex: 1,

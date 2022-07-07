@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import * as ImagePicker from "expo-image-picker";
 
 import {
@@ -16,6 +16,8 @@ import MainButton from "../components/MainButton";
 import TextButton from "../components/TextButton";
 import ChooseCategories from "../components/ChooseCategories";
 import Items from "../assets/data/items";
+import { ContextProvider } from "../components/Context";
+import { Context } from "../../App";
 
 const AddProductScreen = ({ navigation }) => {
   const [image, setImage] = useState(null);
@@ -50,11 +52,26 @@ const AddProductScreen = ({ navigation }) => {
     // }
   };
 
+  const { products, setProducts } = useContext(Context);
+
   function submitForm() {
     setSubmitted(true);
     alert(`${product.Name} has been posted`);
-    Items.push(product);
-    console.log(Items);
+    const item = {
+      ...product,
+      Id: Date.now(),
+      dateCreated: "07/07/2022",
+      image,
+      userName: "Kasia Laniecka",
+      userPhone: "123 155 1631",
+      userImg:
+        "https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
+    };
+    // const newArray = [...Items];
+    Items.unshift(item);
+    // // Items.unshift(context);
+    setProducts(Items);
+    console.log(products);
   }
 
   function fetchImage() {
@@ -132,7 +149,7 @@ const AddProductScreen = ({ navigation }) => {
             editable
             placeholder="Enter area name"
             style={styles.input}
-            onChangeText={(e) => setProduct({ ...product, location: e })}
+            onChangeText={(e) => setProduct({ ...product, prodLocation: e })}
           />
         </View>
         <View>
