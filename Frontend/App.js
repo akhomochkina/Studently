@@ -27,7 +27,7 @@
 //     const Stack = createNativeStackNavigator();
 
 //   return (
-    
+
 //      // <RegisterScreen/>
 
 //       <NavigationContainer>
@@ -38,20 +38,29 @@
 //       </NavigationContainer>
 
 //      //  <ProductDetail />
-     
+
 //   );
 // }
 
-
-import React from "react";
+import { StatusBar } from "expo-status-bar";
+import React, { createContext } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import RegistrationButton from "./src/components/RegistrationButton";
+import LoginScreen from "./src/screens/LoginScreen";
 import LoginScreenNavigation from "./src/navigations/LoginScreenNavigation";
 
 import MainPage from "./src/screens/MainPage";
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import MyTabBar from "./src/components/BottomNavigation";
+
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import AddProductScreen from "./src/screens/AddProductScreen";
+import MainScreenNavigation from "./src/navigations/MainPageNavigation";
+import MyTabs from "./src/components/BottomNavigation";
+import TabsFunc from "./src/components/BottomNavigation";
+import { ContextProvider } from "./src/components/Context";
 
 //const Stack = createStackNavigator();
 
@@ -101,16 +110,19 @@ function Home() {
 //     </Tab.Navigator>
 //   );
 // }
+export const Context = createContext();
 
 export default function App() {
   return (
     <NavigationContainer>
-    {/* <Stack.Navigator screenOptions={{ headerShown: true }}> */}
-        <LoginScreenNavigation/>
+      <ContextProvider>
+        {/* <Stack.Navigator screenOptions={{ headerShown: true }}> */}
+        <LoginScreenNavigation />
         {/* <Stack.Screen name="Home" component={Home} /> */}
         {/* <Stack.Screen name="EditPost" component={MainScreenNavigation} /> */}
-      {/* </Stack.Navigator> */}
-  </NavigationContainer>
+        {/* </Stack.Navigator> */}
+      </ContextProvider>
+    </NavigationContainer>
     // <View>
     //   <MainPage />
     // </View>
