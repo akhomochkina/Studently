@@ -72,7 +72,9 @@ const styles = StyleSheet.create({
         height: 200,
         marginLeft: "auto",
         marginRight: "auto",
-        borderRadius: 20
+        borderRadius: 20,
+        marginTop : 40,
+        marginBottom: 20
     },
     bottom: {
         position: "absolute",

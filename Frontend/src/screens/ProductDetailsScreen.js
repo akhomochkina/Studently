@@ -81,10 +81,13 @@ export default ProductDetailsScreen;
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 20,
+    marginTop: 50,
     marginBottom: 20,
     marginRight: 20,
     marginLeft: 20,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
   },
   img: {
     height: 300,
