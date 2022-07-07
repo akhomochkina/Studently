@@ -4,7 +4,19 @@ import RegistrationFormFields from "../components/RegistrationFormFields";
 import RegistrationForms from "../components/RegistrationForms";
 import UploadImage from "../components/UploadImage";
 import RegistrationButton from "../components/RegistrationButton";
+import * as Yup from "yup";
 import { Button } from "@rneui/base";
+
+const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .required("Email required")
+      .email()
+      .label("Enter your student email"),
+    password: Yup.string()
+      .required("Password required")
+      .label("Enter your password"),
+    phone: Yup.string().required().label("Phone").min(10).max(10),
+  });
 
 export default function ProfileScreen({ navigation }){
     return(
@@ -14,7 +26,9 @@ export default function ProfileScreen({ navigation }){
             <Text style={styles.txt}>Jane Doe{"\n"}Toronto, ON</Text>   
         </View>
         <View style={styles.fields}>
-            <RegistrationForms>
+            <RegistrationForms initialValues={{ email: "", password: "", phone: "" }}
+            onSubmit={(values) => console.log(values)}
+            validationSchema={validationSchema} >
                 <RegistrationFormFields 
                         name='email'
                         autoCapitalize='none'
