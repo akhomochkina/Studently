@@ -1,7 +1,7 @@
 import Card from '../components/Card'
 import SearchBar from "../components/SearchBar";
 import {useState , useEffect} from "react";
-import {View} from 'react-native'
+import {Text, View} from 'react-native'
 import {Image, ScrollView, StyleSheet, Button} from "react-native";
 import BottomNavigation from "../components/BottomNavigation";
 import CategoryCard from "../components/CategoryCard";
@@ -11,6 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MainScreenNavigation from '../navigations/MainPageNavigation';
 import AddProductScreenNavigation from '../navigations/AddProductScreenNavigation';
+import SchoolCard from '../components/SchoolCard'
 
 
 const Tab = createBottomTabNavigator();
@@ -19,14 +20,23 @@ const Tab = createBottomTabNavigator();
 export default function MainPage({ navigation }) {
   const [item, setItem] = useState(Items);
   const categories = [...new Set(Items.map((Val) => Val.Category))];
+  const schools = [...new Set(Items.map((Val) => Val.school))];
 
-  const filterItem = (curcat) => {
+    const filterItem = (curcat) => {
     const newItem = Items.filter((newVal) => {
       return newVal.Category === curcat;
     });
 
     setItem(newItem);
   };
+
+    const filterSchoolItem = (curschool) => {
+        const newItem = Items.filter((newVal) => {
+            return newVal.school === curschool;
+        });
+
+        setItem(newItem);
+    };
 
   const filterSearchItem = (searchTerm, setSearchTerm) => {
     const newItem = item.filter((val) => {
@@ -47,13 +57,16 @@ export default function MainPage({ navigation }) {
           source={require("../assets/images/logo.png")}
           style={styles.image}
         />
-
+          <Text style={styles.text}>Categories</Text>
         <CategoryCard
           categories={categories}
           setItem={setItem}
           filterItem={filterItem}
 
         />
+          <Text style={styles.text}>Schools</Text>
+
+          <SchoolCard setItem={setItem} filterItem={filterSchoolItem} categories={schools} />
         <SearchBar
           item={item}
           setItem={setItem}
@@ -79,5 +92,11 @@ const styles = StyleSheet.create({
     bottom: {
         position: "absolute",
         top: 0,
+    },
+    text: {
+        marginLeft: 20,
+        fontWeight: "bold",
+        marginTop: 8,
+
     }
 });
