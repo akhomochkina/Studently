@@ -43,32 +43,15 @@
 // }
 
 
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import RegistrationButton from "./src/components/RegistrationButton";
-import LoginScreen from "./src/screens/LoginScreen";
 import LoginScreenNavigation from "./src/navigations/LoginScreenNavigation";
-import AddProductScreenNavigation from "./src/navigations/AddProductScreenNavigation";
-import ProductDetailsScreenNavigation from "./src/navigations/ProductDetailsScreenNavigation";
-import RegisterScreenNavigation from "./src/navigations/RegisterScreenNavigation";
-import RegisterScreen from "./src/screens/RegisterScreen";
-import PasswordRecoveryScreen from "./src/screens/PasswordRecoveryScreen";
+
 import MainPage from "./src/screens/MainPage";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import MyTabBar from "./src/components/BottomNavigation";
-
 import "react-native-gesture-handler";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import UploadImage from "./src/components/UploadImage";
-import ProfileScreen from "./src/screens/ProfileScreen";
-import AddProduct from "./src/screens/AddProductScreen";
-import ProductDetailsScreen from "./src/screens/ProductDetailsScreen";
 import AddProductScreen from "./src/screens/AddProductScreen";
-import MainScreenNavigation from "./src/navigations/MainPageNavigation";
-import MyTabs from "./src/components/BottomNavigation";
-import TabsFunc from "./src/components/BottomNavigation";
 
 //const Stack = createStackNavigator();
 

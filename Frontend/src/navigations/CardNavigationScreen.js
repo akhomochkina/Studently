@@ -21,7 +21,7 @@ const CardNavigationScreen = () => {
             name='card'
             component={CardFunc}
             options={{
-                title: 'card',
+                title: 'Details',
                 headerShown: false,
             }}
             />       
