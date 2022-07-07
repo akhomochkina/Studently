@@ -6,6 +6,7 @@ import {
   Text,
   View,
   TouchableWithoutFeedback,
+  ScrollView,
 } from "react-native";
 import * as Yup from "yup";
 import * as Animatable from "react-native-animatable";
@@ -34,59 +35,67 @@ const validationSchema = Yup.object().shape({
 function LoginScreen({ navigation }) {
   return (
     <DismissKeyboard>
-      <View>
-        <View style={styles.container}>
-          <Animatable.Text animation="fadeInDown">Welcome to</Animatable.Text>
-          <Animatable.Image
-            source={require("../assets/images/logo2.png")}
-            style={styles.logo}
-            animation="fadeInDown"
-          />
-          <RegistrationForms
-            initialValues={{ email: "", password: "" }}
-            onSubmit={(values) => console.log(values)}
-            validationSchema={validationSchema}
-          >
-            <View style={styles.formContainer}>
-              <RegistrationFormFields
-                name="email"
-                autoCapitalize="none"
-                autoCorrect={false}
-                keyboardType="email-address"
-                textContentType="emailAddress"
-                icon="email"
-                placeholder="Enter your student email"
-              />
-              <RegistrationFormFields
-                name="password"
-                autoCapitalize="none"
-                autoCorrect={false}
-                textContentType="password"
-                icon="lock"
-                placeholder="Enter your password"
-                secureTextEntry={true}
+      {/* <ScrollView> */}
+      <ImageBackground
+        source={require("../assets/images/Intersect.png")}
+        resizeMode="cover"
+        style={styles.bg}
+      >
+        <View>
+          <View style={styles.container}>
+            <Animatable.Text animation="fadeInDown">Welcome to</Animatable.Text>
+            <Animatable.Image
+              source={require("../assets/images/logo2.png")}
+              style={styles.logo}
+              animation="fadeInDown"
+            />
+            <RegistrationForms
+              initialValues={{ email: "", password: "" }}
+              onSubmit={(values) => console.log(values)}
+              validationSchema={validationSchema}
+            >
+              <View style={styles.formContainer}>
+                <RegistrationFormFields
+                  name="email"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  keyboardType="email-address"
+                  textContentType="emailAddress"
+                  icon="email"
+                  placeholder="Enter your student email"
+                />
+                <RegistrationFormFields
+                  name="password"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  textContentType="password"
+                  icon="lock"
+                  placeholder="Enter your password"
+                  secureTextEntry={true}
+                />
+              </View>
+            </RegistrationForms>
+            <MainButton
+              title="Log in"
+              onPress={() => navigation.navigate("mainPage")}
+              style={styles.submitBtn}
+            />
+            <TextButton
+              onPress={() => navigation.navigate("recoverPassword")}
+              title="Forgot password?"
+            />
+            <View style={styles.signUp}>
+              <Text>Don't have an account?</Text>
+              <TextButton
+                title="Sign up"
+                onPress={() => navigation.navigate("signUp")}
+                style={styles.signUpBtn}
               />
             </View>
-          </RegistrationForms>
-          <MainButton
-            title="Log in"
-            onPress={() => navigation.navigate("mainPage")}
-            style={styles.submitBtn}
-          />
-          <TextButton
-            onPress={() => navigation.navigate("recoverPassword")}
-            title="Forgot password?"
-          />
-          <View style={styles.signUp}>
-            <Text>Don't have an account?</Text>
-            <TextButton
-              title="Sign up"
-              onPress={() => navigation.navigate("signUp")}
-              style={styles.signUpBtn}
-            />
           </View>
         </View>
-      </View>
+      </ImageBackground>
+      {/* </ScrollView> */}
     </DismissKeyboard>
   );
 }
@@ -95,7 +104,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     height: "100%",
-    paddingTop: 200,
+    paddingTop: 170,
   },
   formContainer: {
     paddingRight: 20,
@@ -113,7 +122,7 @@ const styles = StyleSheet.create({
   },
   signUp: {
     position: "absolute",
-    bottom: 30,
+    bottom: 50,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

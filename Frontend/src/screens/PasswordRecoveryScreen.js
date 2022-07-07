@@ -36,94 +36,54 @@ const validationSchema = Yup.object().shape({
 export default function PasswordRecoveryScreen({ navigation }) {
   const [label, setLabel] = useState("");
   return (
-    // <DismissKeyboard>
-    //   <View>
-    //     <View style={styles.container}>
-    //       <Animatable.Text animation="fadeInDown" style={styles.header}>
-    //         Welcome To Studently!
-    //       </Animatable.Text>
-    //       <Animatable.Text animation="fadeInDown" style={styles.subheaher}>
-    //         Please Enter email associated with your account
-    //       </Animatable.Text>
-    //       <RegistrationForms
-    //         initialValues={{ email: "", password: "" }}
-    //         onSubmit={(values) => console.log(values)}
-    //         validationSchema={validationSchema}
-    //       >
-    //         <View style={{ width: "80%" }}>
-    //           <RegistrationFormFields
-    //             name="email"
-    //             autoCapitalize="none"
-    //             autoCorrect={false}
-    //             keyboardType="email-address"
-    //             textContentType="emailAddress"
-    //             icon="email"
-    //             placeholder="Enter your student email"
-    //           />
-    //         </View>
-    //         <Text style={styles.txt}>{label}</Text>
-    //         <RegistrationButton
-    //           title="Reset Password"
-    //           style={styles.btn}
-    //           onPress={() => setLabel("Reset link has been sent to your inbox")}
-    //         />
-    //       </RegistrationForms>
-    //     </View>
-    //     <View style={styles.accnt}>
-    //       <Text>
-    //         Don't Have an Account?
-    //         <Text
-    //           style={{ color: "#dfe6eb" }}
-    //           onPress={() => navigation.navigate("signUp")}
-    //         >
-    //           {" "}
-    //           Sign Up!
-    //         </Text>
-    //       </Text>
-    //     </View>
-    //   </View>
-    // </DismissKeyboard>
     <DismissKeyboard>
-      <View>
-        <View style={styles.container}>
-          {/* <Animatable.Text animation="fadeInDown">Welcome to</Animatable.Text> */}
-          <Animatable.Image
-            source={require("../assets/images/logo2.png")}
-            style={styles.logo}
-            animation="fadeInDown"
-          />
-          <RegistrationForms
-            initialValues={{ email: "", password: "" }}
-            onSubmit={(values) => console.log(values)}
-            validationSchema={validationSchema}
-          >
-            <View style={{ width: "80%" }}>
-              <RegistrationFormFields
-                name="email"
-                autoCapitalize="none"
-                autoCorrect={false}
-                keyboardType="email-address"
-                textContentType="emailAddress"
-                icon="email"
-                placeholder="Enter your student email"
+      <ImageBackground
+        source={require("../assets/images/Intersect.png")}
+        resizeMode="cover"
+        style={styles.bg}
+      >
+        <View>
+          <View style={styles.container}>
+            {/* <Animatable.Text animation="fadeInDown">Welcome to</Animatable.Text> */}
+
+            <Animatable.Image
+              source={require("../assets/images/logo2.png")}
+              style={styles.logo}
+              animation="fadeInDown"
+            />
+            <RegistrationForms
+              initialValues={{ email: "", password: "" }}
+              onSubmit={(values) => console.log(values)}
+              validationSchema={validationSchema}
+            >
+              <View style={{ width: "80%" }}>
+                <RegistrationFormFields
+                  name="email"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  keyboardType="email-address"
+                  textContentType="emailAddress"
+                  icon="email"
+                  placeholder="Enter your student email"
+                />
+              </View>
+            </RegistrationForms>
+            <Text style={styles.label}>{label}</Text>
+            <MainButton
+              title="Reset password"
+              onPress={() => setLabel("Reset link has been sent to your inbox")}
+              style={styles.submitBtn}
+            />
+            <View style={styles.backToLogin}>
+              <TextButton
+                title="Back to Login"
+                onPress={() => navigation.navigate("login")}
+                style={styles.signUpBtn}
               />
             </View>
-          </RegistrationForms>
-          <Text style={styles.label}>{label}</Text>
-          <MainButton
-            title="Reset password"
-            onPress={() => setLabel("Reset link has been sent to your inbox")}
-            style={styles.submitBtn}
-          />
-          <View style={styles.backToLogin}>
-            <TextButton
-              title="Back to Login"
-              onPress={() => navigation.navigate("login")}
-              style={styles.signUpBtn}
-            />
           </View>
         </View>
-      </View>
+      </ImageBackground>
     </DismissKeyboard>
   );
 }
@@ -132,7 +92,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
     height: "100%",
-    paddingTop: 200,
+    paddingTop: 170,
   },
   formContainer: {
     paddingRight: 20,
@@ -149,7 +109,7 @@ const styles = StyleSheet.create({
   },
   backToLogin: {
     position: "absolute",
-    bottom: 30,
+    bottom: 50,
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
