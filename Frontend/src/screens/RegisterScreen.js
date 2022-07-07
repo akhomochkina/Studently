@@ -58,7 +58,24 @@ export default function RegisterScreen({ navigation }) {
             onSubmit={(values) => console.log(values)}
             validationSchema={validationSchema}
           >
-            <View style={styles.formContainer}>
+            <View style={{ width: "80%" }}>
+              <RegistrationFormFields
+                name="firstName"
+                autoCapitalize="none"
+                autoCorrect={false}
+                textContentType="givenName"
+                icon="account"
+                placeholder="Enter your First Name"
+              />
+
+              <RegistrationFormFields
+                name="lastName"
+                autoCapitalize="none"
+                autoCorrect={false}
+                textContentType="familyName"
+                icon="account"
+                placeholder="Enter your Last Name"
+              />
               <RegistrationFormFields
                 name="email"
                 autoCapitalize="none"
@@ -74,25 +91,38 @@ export default function RegisterScreen({ navigation }) {
                 autoCorrect={false}
                 textContentType="password"
                 icon="lock"
-                placeholder="Enter your password"
+                placeholder="Create your password"
                 secureTextEntry={true}
+              />
+              <RegistrationFormFields
+                name="passwordConfirmation"
+                autoCapitalize="none"
+                autoCorrect={false}
+                textContentType="password"
+                icon="lock"
+                placeholder="Re-enter your password"
+                secureTextEntry={true}
+              />
+              <RegistrationFormFields
+                name="phone"
+                autoCapitalize="none"
+                autoCorrect={false}
+                textContentType="telephoneNumber"
+                icon="phone"
+                placeholder="Enter your phone"
               />
             </View>
           </RegistrationForms>
           <MainButton
-            title="Log in"
+            title="Create Account"
             onPress={() => navigation.navigate("mainPage")}
             style={styles.submitBtn}
           />
-          <TextButton
-            onPress={() => navigation.navigate("recoverPassword")}
-            title="Forgot password?"
-          />
           <View style={styles.signUp}>
-            <Text>Don't have an account?</Text>
+            <Text>Already have an account?</Text>
             <TextButton
-              title="Sign up"
-              onPress={() => navigation.navigate("signUp")}
+              title="Log in"
+              onPress={() => navigation.navigate("login")}
               style={styles.signUpBtn}
             />
           </View>
@@ -100,92 +130,6 @@ export default function RegisterScreen({ navigation }) {
       </View>
     </DismissKeyboard>
   );
-}
-
-{
-  /* <DismissKeyboard>                         
-           <ImageBackground source={require('../assets/images/bg2.jpg')} blurRadius={5} resizeMode="cover" style={styles.image}>
-          
-          <View style={styles.container}>
-              <Animatable.Text animation='fadeInDown' style={styles.header}>
-                  Welcome To Studently!                    
-              </Animatable.Text>
-              <Animatable.Text animation='fadeInDown' style={styles.subheaher}>
-                  Safe and Reliable marketplace for students                    
-              </Animatable.Text>   
-              <RegistrationForms                  
-                  initialValues={{ email: '', password: ''}}
-                  onSubmit={(values) => console.log(values)}
-                  validationSchema={validationSchema}
-                  >
-                <View style={{width: "80%"}}>
-                    <RegistrationFormFields
-                      name='firstName'
-                      autoCapitalize='none'
-                      autoCorrect={false}                      
-                      textContentType='givenName'
-                      icon='account'
-                      placeholder='Enter your First Name' 
-                     
-                    />
-
-                    <RegistrationFormFields                    
-                      name='lastName'
-                      autoCapitalize='none'
-                      autoCorrect={false}
-                      textContentType='familyName'
-                      icon='account'
-                      placeholder='Enter your Last Name' 
-                     
-                    />
-                    <RegistrationFormFields
-                      name='email'
-                      autoCapitalize='none'
-                      autoCorrect={false}
-                      keyboardType='email-address'
-                      textContentType='emailAddress'
-                      icon='email'
-                      placeholder='Enter your student email' 
-                     
-                    />
-                    <RegistrationFormFields
-                      name='password'
-                      autoCapitalize='none'
-                      autoCorrect={false}
-                      textContentType='password'
-                      icon='lock'
-                      placeholder='Create your password'
-                      secureTextEntry={true}                        
-                  />
-                  <RegistrationFormFields
-                      name='passwordConfirmation'
-                      autoCapitalize='none'
-                      autoCorrect={false}
-                      textContentType='password'
-                      icon='lock'
-                      placeholder='Re-enter your password'
-                      secureTextEntry={true}                        
-                  />
-                  <RegistrationFormFields
-                      name='phone'
-                      autoCapitalize='none'
-                      autoCorrect={false}
-                      textContentType='telephoneNumber'
-                      icon='phone'
-                      placeholder='Enter your phone'
-                  />
-                </View>
-                  <RegistrationButton title='Create Account' onPress={()=>navigation.navigate("login")} style={styles.btn}/>                                    
-              </RegistrationForms>    
-                                            
-          </View>
-          <View style={styles.accnt}>
-                  <Text >Already Have an Account?
-                      <Text style={{ color: '#dfe6eb' }} onPress={()=> navigation.navigate('login')}> Log In!</Text>
-                  </Text>                        
-          </View>               
-          </ImageBackground> 
-        </DismissKeyboard> */
 }
 
 const styles = StyleSheet.create({
@@ -205,7 +149,6 @@ const styles = StyleSheet.create({
   },
   submitBtn: {
     marginTop: 40,
-    width: 100,
     marginBottom: 20,
   },
   signUp: {
