@@ -33,14 +33,6 @@ export default function CategoryCard({ categories, setItem, filterItem }) {
     <View style={styles.container}>
       {categories.map((category) => {
         return (
-          //   <Button
-          //     style={styles.categoryCard}
-          //     key={category}
-          //     mode="contained"
-          //     onPress={() => filterItem(category)}
-          //   >
-          //     {category}
-          //   </Button>
           <TouchableOpacity
             onPress={() => filterItem(category)}
             key={category}
@@ -67,9 +59,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   categoryCard: {
-    // marginLeft: 20,
-    // marginRight: 20,
-    // marginTop: 5,
     backgroundColor: "#7E94E5",
     height: 80,
     width: 120,
@@ -79,7 +68,6 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   text: {
-    // color: "white",
     marginTop: 4,
   },
 });

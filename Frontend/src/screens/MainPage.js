@@ -71,8 +71,9 @@ export default function MainPage({ navigation }) {
           filterItem={filterSchoolItem}
           categories={schools}
         />
-
-        <Card item={item} navigation={navigation} />
+        <View style={styles.results}>
+          <Card item={item} navigation={navigation} />
+        </View>
       </ScrollView>
     </View>
   );
@@ -93,5 +94,10 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: 16,
     marginBottom: 8,
+  },
+  results: {
+    marginTop: 16,
+    // flex: 1,
+    // flexDirection: "row",
   },
 });
