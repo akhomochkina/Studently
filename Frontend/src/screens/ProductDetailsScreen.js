@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { createStackNavigator } from '@react-navigation/stack';
+
 import {
   ScrollView,
   Text,
@@ -14,6 +16,7 @@ import {
   Linking,
 } from "react-native";
 import MainButton from "../components/MainButton";
+
 
 const ProductDetailsScreen = ({ navigation , route }) => {
 
@@ -65,7 +68,11 @@ const ProductDetailsScreen = ({ navigation , route }) => {
             <Image source={{ uri: item.userImg }} style={styles.profileImg} />
             <Text>{item.userName}</Text>
           </View>
-          <MainButton title="Contact" onPress={handlePress} />
+          <View >
+          <MainButton title="Call" onPress={handlePress} />
+          <Text> </Text>
+          <MainButton title="Chat" onPress={navigation.navigate('chat')} />
+          </View>          
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
