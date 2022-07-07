@@ -16,6 +16,6 @@ const styles = {
   buttonText: {
     color: "#7E94E5",
     fontWeight: "bold",
-    fontSize: 14,
+    fontSize: 15,
   },
 };

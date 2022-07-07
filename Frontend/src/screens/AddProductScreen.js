@@ -59,32 +59,13 @@ const AddProductScreen = ({ navigation }) => {
 
   function fetchImage() {
     const accessKey = "h6tJzpxOM079qC08gY1SwJQk4PNsFYFYP79YEBt3IoQ";
-    const query = product.name;
+    const query = product.Name;
     fetch(
       `https://api.unsplash.com/search/photos/?client_id=${accessKey}&limit=1&query=${query}`
     )
       .then((res) => res.json())
       .then((res) => setImage(res.results[0].urls.regular));
   }
-
-  const ex = {
-    Id: 1,
-    Name: "Bath towels",
-    Price: 25,
-    Category: "Home Appliances",
-    image:
-      "https://images.unsplash.com/photo-1523471826770-c437b4636fe6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-    dateCreated: "05/07/2022",
-    prodLocation: "North York",
-    school: "Seneca College",
-    description:
-      "Produced from sustainably sourced 100% certified Egyptian cotton, our plush terry towels are made with the planet in mind.",
-    userId: 11111,
-    userName: "Reza Poursafa",
-    userPhone: "647 111 1111",
-    userImg:
-      "https://images.unsplash.com/photo-1544168190-79c17527004f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80",
-  };
 
   return (
     <KeyboardAvoidingView
@@ -221,10 +202,8 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   imgContainer: {
-    // flex: 1,
-    // flexDirection: "row",
-    // alignItems: "center",
-    // marginTop: 8,
+    flex: 1,
+    flexDirection: "row",
   },
   img: {
     marginTop: 12,

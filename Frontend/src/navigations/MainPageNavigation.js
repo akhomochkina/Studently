@@ -1,13 +1,12 @@
 import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
 import MainPage from '../screens/MainPage';
-import ProductDetailsScreenNavigation from "./ProductDetailsScreenNavigation";
-import ProductDetailsScreen from "../screens/ProductDetailsScreen";
-import MyTabBar from "../components/BottomNavigation";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import AddProductScreenNavigation from "./AddProductScreenNavigation";
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import ProfileScreenNavigation from "./ProfileScreenNavigation";
+import ProductDetailsScreen from "../screens/ProductDetailsScreen";
+import ProfileScreen from "../screens/ProfileScreen";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -48,11 +47,11 @@ const MainScreenNavigation = () => {
             component={ProductDetailsScreen}
             options={{
                 title: 'Details',
-                headerShown: false,
+                headerShown: true,
             }}
             />    
         <Stack.Screen name="+" component={AddProductScreenNavigation} />
-        <Stack.Screen name="Profile" component={ProfileScreenNavigation} />
+        <Stack.Screen name="Profile" component={ProfileScreen} />
  
        
     </Stack.Navigator>    

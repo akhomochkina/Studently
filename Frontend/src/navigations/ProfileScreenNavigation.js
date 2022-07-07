@@ -1,7 +1,5 @@
 import React from "react";
 import { createStackNavigator } from '@react-navigation/stack';
-import EditProfileScreen from '../screens/EditProfileScreen';
-import MainPage from "../screens/MainPage";
 import ProfileScreen from "../screens/ProfileScreen";
 
 const Stack = createStackNavigator();
