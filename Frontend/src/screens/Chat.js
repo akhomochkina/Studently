@@ -67,7 +67,8 @@ export default class Chat extends Component {
                 placeholderTextColor="#b5b5b5"
                 placeholder="Write a message..."
                 underlineColorAndroid='transparent'
-                onChangeText={(name_address) => this.setInputData({name_address})}/>
+                // onChangeText={(name_address) => this.setInputData({name_address})}
+                />
           </View>
 
             <TouchableOpacity style={styles.btnSend} onPress={this.addText}>
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
   },
   list:{
     paddingHorizontal: 17,
-    marginTop: "90%" ,
+    marginTop: "60%" ,
 
   },
   footer:{
@@ -149,8 +150,8 @@ const styles = StyleSheet.create({
     marginVertical: 14,
     flex: 1,
     flexDirection: 'row',
-    backgroundColor:"#eeeeee",
+    backgroundColor:"#e3e3e3",
     borderRadius:300,
-    padding:5,
+    padding:5, 
   },
 }); 

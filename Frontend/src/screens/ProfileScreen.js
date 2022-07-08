@@ -67,11 +67,11 @@ export default function ProfileScreen({ navigation }) {
         <Button style={styles.btns} color="#7E94E5" title="Favorites"></Button>
         <Button style={styles.btns} color="#7E94E5" title="Purchased"></Button>
         <Button style={styles.btns} color="#7E94E5" title="My Items"></Button>
-        <TextButton
+        {/* <TextButton
           title="Log out"
           onPress={() => navigation.navigate("login")}
           style={styles.logOut}
-        />
+        /> */}
       </View>
     </View>
   );

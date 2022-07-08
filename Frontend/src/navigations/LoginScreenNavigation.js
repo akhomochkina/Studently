@@ -43,7 +43,7 @@ const LoginScreenNavigation = () => {
             name='mainPage'
             component={MainScreenNavigation}
             options={{
-                title: 'Home',
+                title: 'Back',
                 headerShown: false,
             }}
             />       
@@ -75,8 +75,8 @@ const LoginScreenNavigation = () => {
                 name='chat'
                 component={ChatPage}
                 options={{
-                    title: 'Back',
-                    headerShown: false,
+                    title: '+1 (234) 567-890',
+                    headerShown: true,
                 }}
             />
     
