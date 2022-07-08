@@ -13,6 +13,10 @@ const ChooseCategories = ({ setProduct, product }) => {
       id: 2,
       name: "Study Material",
     },
+    {
+      id: 3,
+      name: "Books",
+    },
   ];
 
   function handlePress(name) {
