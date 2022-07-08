@@ -65,9 +65,9 @@ export default function ProfileScreen({ navigation }) {
       </View>
       <RegistrationButton title="Edit" style={styles.btn} />
       <View style={{ marginTop: 20 }}>
-        <Button style={styles.btns} color="#7E94E5" title="Favorites"></Button>
-        <Button style={styles.btns} color="#7E94E5" title="Purchased"></Button>
-        <Button style={styles.btns} color="#7E94E5" title="My Items"></Button>
+        <MainButton title="Favorites" style={styles.button} />
+        <MainButton title="Purchased" style={styles.button} />
+        <MainButton title="My items" style={styles.button} />
         {/* <TextButton
           title="Log out"
           onPress={() => navigation.navigate("login")}
@@ -108,6 +108,10 @@ const styles = StyleSheet.create({
 
   btns: {
     margin: 10,
+  },
+
+  button: {
+    marginBottom: 8,
   },
 
   logOut: {
