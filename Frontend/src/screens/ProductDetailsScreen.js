@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import * as ImagePicker from "expo-image-picker";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator } from "@react-navigation/stack";
 
 import {
   ScrollView,
@@ -18,9 +18,7 @@ import {
 } from "react-native";
 import MainButton from "../components/MainButton";
 
-
-const ProductDetailsScreen = ({ navigation , route }) => {
-
+const ProductDetailsScreen = ({ navigation, route }) => {
   let item = route.params.data;
 
   const [image, setImage] = useState(null);
@@ -37,8 +35,8 @@ const ProductDetailsScreen = ({ navigation , route }) => {
     Linking.openURL(phoneNumber);
   }
 
-  function goToChat(){
-    navigation.navigate('chat' , {initial: false})
+  function goToChat() {
+    navigation.navigate("chat", { initial: false });
   }
 
   return (
@@ -73,11 +71,11 @@ const ProductDetailsScreen = ({ navigation , route }) => {
             <Image source={{ uri: item.userImg }} style={styles.profileImg} />
             <Text>{item.userName}</Text>
           </View>
-          <View >
-          <MainButton title="Call" onPress={handlePress} />
-          <Text> </Text>
-          <MainButton title="Chat" onPress={goToChat} />
-          </View>          
+          <View>
+            <MainButton title="Call" onPress={handlePress} />
+            <Text> </Text>
+            <MainButton title="Chat" onPress={goToChat} />
+          </View>
         </View>
       </ScrollView>
     </KeyboardAvoidingView>

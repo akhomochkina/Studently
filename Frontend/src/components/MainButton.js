@@ -1,4 +1,5 @@
 import { TouchableOpacity, View, Text } from "react-native";
+import PropTypes from "prop-types";
 
 const MainButton = ({ title, onPress, style }) => {
   return (
@@ -11,6 +12,12 @@ const MainButton = ({ title, onPress, style }) => {
 };
 
 export default MainButton;
+
+MainButton.propTypes = {
+  title: PropTypes.string,
+  onPress: PropTypes.func,
+  style: PropTypes.object,
+};
 
 const styles = {
   button: {
