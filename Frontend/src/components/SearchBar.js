@@ -31,11 +31,11 @@ export default function Searching({ item, setItem, filterSearchItem }) {
           style={styles.searchBar}
         />
 
-        <TextButton
-          title="Clear"
-          onPress={() => setItem(Item)}
-          style={styles.clear}
-        />
+        {/*<TextButton*/}
+        {/*  title="Clear"*/}
+        {/*  onPress={() => setItem(Item)}*/}
+        {/*  style={styles.clear}*/}
+        {/*/>*/}
       </View>
     </>
   );

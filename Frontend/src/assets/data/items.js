@@ -92,6 +92,24 @@ const Items = [
     userImg:
       "https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
   },
+  {
+    Id: 6,
+    Name: "Foundation Design Project 2018",
+    Price: 23,
+    Category: "Books",
+    image:
+        "https://mir-s3-cdn-cf.behance.net/project_modules/2800_opt_1/18e57169160275.5b76ad12750e7.jpg",
+    dateCreated: "15/09/2022",
+    prodLocation: "Montreal",
+    school: "McGill University",
+    description:
+        "In Foundation Design: Theory and Practice, Professor N. S. V. Kameswara Rao covers the key aspects of the subject, including principles of testing, interpretation, analysis, soil-structure interaction modeling, construction guidelines, and applications to rational design",
+    userId: 66666,
+    userName: "Eobard Thawn",
+    userPhone: "647 666 6666",
+    userImg:
+        "https://images.unsplash.com/photo-1508835277982-1c1b0e205603?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+  },
 ];
 
 export default Items;

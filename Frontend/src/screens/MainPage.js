@@ -1,6 +1,6 @@
 import Card from "../components/Card";
 import SearchBar from "../components/SearchBar";
-import { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Text, View } from "react-native";
 import { Image, ScrollView, StyleSheet, Button } from "react-native";
 import BottomNavigation from "../components/BottomNavigation";
@@ -13,6 +13,8 @@ import MainScreenNavigation from "../navigations/MainPageNavigation";
 import AddProductScreenNavigation from "../navigations/AddProductScreenNavigation";
 import SchoolCard from "../components/SchoolCard";
 import { Context } from "../../App";
+import Item from "../assets/data/items";
+import TextButton from "../components/TextButton";
 
 const Tab = createBottomTabNavigator();
 
@@ -71,6 +73,11 @@ export default function MainPage({ navigation }) {
           filterItem={filterSchoolItem}
           categories={schools}
         />
+        <TextButton
+            title="Clear Filters"
+            onPress={() => setItem(Item)}
+            style={styles.clear}
+        />
         <View style={styles.results}>
           <Card item={item} navigation={navigation} />
         </View>
@@ -99,5 +106,10 @@ const styles = StyleSheet.create({
     marginTop: 16,
     // flex: 1,
     // flexDirection: "row",
+  },
+  clear: {
+    alignSelf: "center",
+    marginTop: 5,
+    marginBottom: 10
   },
 });

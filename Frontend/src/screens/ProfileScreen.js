@@ -46,8 +46,9 @@ export default function ProfileScreen({ navigation }) {
             name="password"
             autoCapitalize="none"
             autoCorrect={false}
-            keyboardType="password-"
+            keyboardType="visible-password"
             textContentType="password"
+            secureTextEntry={true}
             placeholderTextColor="#210404"
             placeholder="Password                         ******************"
           />
@@ -55,7 +56,7 @@ export default function ProfileScreen({ navigation }) {
             name="phone"
             autoCapitalize="none"
             autoCorrect={false}
-            keyboardType="telephoneNumber"
+            keyboardType="number-pad"
             textContentType="telephoneNumber"
             placeholderTextColor="#210404"
             placeholder="Phone                                +1 416-123-4567"
