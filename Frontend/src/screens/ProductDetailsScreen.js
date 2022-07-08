@@ -71,11 +71,10 @@ const ProductDetailsScreen = ({ navigation, route }) => {
             <Image source={{ uri: item.userImg }} style={styles.profileImg} />
             <Text>{item.userName}</Text>
           </View>
-          <View>
-            <MainButton title="Call" onPress={handlePress} />
-            <Text> </Text>
-            <MainButton title="Chat" onPress={goToChat} />
-          </View>
+          {/* <View style={styles.contact}> */}
+          <MainButton title="Call" onPress={handlePress} style={styles.call} />
+          <MainButton title="Chat" onPress={goToChat} />
+          {/* </View> */}
         </View>
       </ScrollView>
     </KeyboardAvoidingView>
@@ -154,6 +153,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: 12,
     marginTop: 20,
     padding: 20,
@@ -164,5 +164,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     alignItems: "center",
+  },
+  contact: {
+    flex: 1,
+    flexDirection: "row",
+    width: 50,
+  },
+  call: {
+    marginRight: 8,
   },
 });
