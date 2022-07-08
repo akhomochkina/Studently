@@ -1,6 +1,6 @@
 import * as React from "react";
 // import { Button } from "react-native-paper";
-import { Button } from "react-native";
+import { Button, FlatList } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 // const customData = require('../assets/data/items.json');
 // const customCategories = require('../assets/data/categories.json');
@@ -31,24 +31,29 @@ export default function CategoryCard({ categories, setItem, filterItem }) {
 
   return (
     <View style={styles.container}>
-      {categories.map((category) => {
-        return (
+      <FlatList
+        data={categories}
+        horizontal={true}
+        keyExtractor={(item) => item}
+        renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => filterItem(category)}
-            key={category}
-            title={category}
+            onPress={() => filterItem(item)}
+            key={item}
+            title={item}
           >
-            <View style={styles.categoryCard}>
-              <MaterialCommunityIcons
-                name={getIcon(category)}
-                color={"white"}
-                size={30}
-              />
+            <View style={styles.flexContainer}>
+              <View style={styles.categoryCard}>
+                <MaterialCommunityIcons
+                  name={getIcon(item)}
+                  color={"white"}
+                  size={30}
+                />
+              </View>
+              <Text style={styles.text}>{item}</Text>
             </View>
-            <Text style={styles.text}>{category}</Text>
           </TouchableOpacity>
-        );
-      })}
+        )}
+      />
     </View>
   );
 }
