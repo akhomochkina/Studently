@@ -6,7 +6,9 @@ import RNRestart from 'react-native-restart';
 
 const Stack = createStackNavigator();
 
-const ProfileScreenNavigation = () => {
+
+
+const ProfileScreenNavigation = ({navigation}) => {
    return( <Stack.Navigator>
         <Stack.Screen 
             name='profileScreen'
@@ -15,7 +17,7 @@ const ProfileScreenNavigation = () => {
                 headerTitle: "Account Info" ,
                 headerRight: () => (
                   <Button
-                    onPress={() => alert(`You've been sucessfully logged out!`)}
+                    onPress={() => navigation.navigate("login")}
                     title="Log Out"
                     color="#7E94E5"
                     marginLeft="10"
