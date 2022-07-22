@@ -18,5 +18,7 @@ $ expo start
 
 ## Demo
 
-https://github.com/akhomochkina/Studently/blob/main/Frontend/src/assets/images/details.mov 
+[<video src="https://github.com/akhomochkina/Studently/blob/main/Frontend/src/assets/images/details.mov" width="50%">]
+
+
 
