@@ -18,5 +18,5 @@ $ expo start
 
 ## Demo
 
-details.mov 
+https://github.com/akhomochkina/Studently/blob/main/Frontend/src/assets/images/details.mov 
 
