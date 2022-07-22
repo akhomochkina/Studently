@@ -18,7 +18,7 @@ $ expo start
 
 ## Demo
 
-[<img src="https://github.com/akhomochkina/Studently/blob/main/Frontend/src/assets/images/login.png" width="50%">]
+<img src="https://github.com/akhomochkina/Studently/blob/main/Frontend/src/assets/images/login.png" width="50%" hight="50%">
 
 
 
