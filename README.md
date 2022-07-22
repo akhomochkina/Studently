@@ -18,4 +18,5 @@ $ expo start
 
 ## Demo
 
+details.mov 
 
